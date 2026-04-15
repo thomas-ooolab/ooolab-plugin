@@ -20,7 +20,7 @@
 
 ---
 
-Internal CLI plugin that distributes shared **rules**, **skills**, **agents**, and **commands** to Claude Code and Cursor from a single source. Define once in `shared/`, run `sync`, every project gets the same AI context — no copy-paste, no drift.
+Internal CLI plugin that distributes shared **rules**, **skills**, **agents**, and **commands** to Claude Code and Cursor from a single source. Define once at the repo root (`rules/`, `skills/`, `agents/`, `commands/`), install as plugin or run `sync`, every project gets the same AI context — no copy-paste, no drift.
 
 ## Before / After
 
@@ -93,7 +93,7 @@ More coming: Windsurf, Copilot, Cline.
 /plugin install mobile-plugin@ooolab-mobile
 ```
 
-Skills, agents, and commands load natively. Namespaced as `/mobile-plugin:<name>`. No file generation, no sync — Claude Code reads `shared/` directly.
+Skills, agents, and commands load natively. Namespaced as `/mobile-plugin:<name>`. No file generation, no sync — Claude Code reads `skills/`, `agents/`, `commands/` directly.
 
 ### As a Cursor plugin
 
@@ -192,23 +192,16 @@ COMMANDS
 
 ## Shared Content
 
-All shared content lives in `shared/` as Markdown with YAML frontmatter.
+All shared content lives at the repo root as Markdown with YAML frontmatter.
 
 ### Structure
 
 ```
-shared/
-├── rules/              # Coding standards and guidelines
-│   ├── general.md         — applies to all projects
-│   ├── typescript.md      — TS-specific, scoped to *.ts/*.tsx
-│   └── react-native.md   — RN-specific, scoped to *.tsx/*.jsx
-├── skills/             # Reusable AI skill prompts
-│   ├── code-review.md     — structured review checklist
-│   └── commit.md          — conventional commit generator
-├── agents/             # Agent role definitions
-│   └── reviewer.md        — automated PR reviewer
-└── commands/           # Command templates
-    └── deploy.md          — deployment pre-flight guide
+rules/              # Coding standards and guidelines
+skills/             # Reusable AI skill folders (each with SKILL.md)
+agents/             # Agent role definitions
+commands/           # Command templates
+scripts/            # Shell scripts referenced by commands
 ```
 
 ### File Format
@@ -227,7 +220,7 @@ Content here. Markdown supported.
 ### How It Works
 
 ```
-shared/*.md  ──→  templates/*.hbs  ──→  project config files
+{rules,skills,agents,commands}/*.md  ──→  templates/*.hbs  ──→  project config files
                         │
                         ├── Claude: CLAUDE.md + .claude/skills/ + .claude/commands/
                         └── Cursor: .cursorrules + .cursor/rules/*.mdc
@@ -236,12 +229,12 @@ shared/*.md  ──→  templates/*.hbs  ──→  project config files
 | Command | What it does |
 |---------|-------------|
 | `init` | Write `.ai-plugin.json` + generate all tool configs |
-| `sync` | Re-read `shared/`, re-render templates, update files (skip unchanged) |
+| `sync` | Re-read top-level dirs, re-render templates, update files (skip unchanged) |
 | `list` | Display available rules/skills/agents/commands |
 
 ## Adding New Content
 
-1. Create `.md` in the right `shared/` subdirectory
+1. Create `.md` in the right top-level directory (`rules/`, `skills/`, `agents/`, `commands/`)
 2. Add frontmatter: `title` + `description` (minimum)
 3. Write content
 4. `npx ai-plugin list` → verify it shows

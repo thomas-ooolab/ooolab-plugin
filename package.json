@@ -14,8 +14,14 @@
   "files": [
     "bin/",
     "src/",
-    "shared/",
-    "templates/"
+    "rules/",
+    "skills/",
+    "agents/",
+    "commands/",
+    "scripts/",
+    "templates/",
+    ".claude-plugin/",
+    ".cursor-plugin/"
   ],
   "repository": {
     "type": "git",

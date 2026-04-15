@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import chalk from 'chalk';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SHARED_DIR = join(__dirname, '..', 'shared');
+const SHARED_DIR = join(__dirname, '..');
 
 const CATEGORIES = ['rules', 'skills', 'agents', 'commands'];
 

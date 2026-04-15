@@ -16,7 +16,7 @@
     "clean-architecture",
     "ooolab"
   ],
-  "skills": "./shared/skills/",
-  "agents": "./shared/agents/",
-  "commands": "./shared/commands/"
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "commands": "./commands/"
 }
