@@ -86,12 +86,35 @@ More coming: Windsurf, Copilot, Cline.
 
 ## Install
 
+### Run directly with npx (no install)
+
 ```bash
-# From GitHub (internal)
-npm install --save-dev git+ssh://git@github.com:thomas-ooolab/mobile-plugin.git
+# From GitHub — run anywhere, no install needed
+npx github:thomas-ooolab/mobile-plugin init
+npx github:thomas-ooolab/mobile-plugin sync
+npx github:thomas-ooolab/mobile-plugin list
 ```
 
-That's it. One line.
+### Or install as devDependency
+
+```bash
+npm install --save-dev github:thomas-ooolab/mobile-plugin
+
+# Then use locally
+npx ai-plugin init
+npx ai-plugin sync
+npx ai-plugin list
+```
+
+### Or install globally
+
+```bash
+npm install -g github:thomas-ooolab/mobile-plugin
+
+# Then use anywhere
+ai-plugin init
+ai-plugin sync
+```
 
 ## Usage
 
@@ -99,11 +122,11 @@ That's it. One line.
 
 ```bash
 # Both Claude + Cursor
-npx @ooolab/mobile-plugin init
+npx ai-plugin init
 
 # Single tool
-npx @ooolab/mobile-plugin init -t claude
-npx @ooolab/mobile-plugin init -t cursor
+npx ai-plugin init -t claude
+npx ai-plugin init -t cursor
 ```
 
 Output:
@@ -128,15 +151,15 @@ Done! AI configs installed.
 ### `sync` — Update to latest
 
 ```bash
-npx @ooolab/mobile-plugin sync            # update all
-npx @ooolab/mobile-plugin sync --dry-run   # preview only
-npx @ooolab/mobile-plugin sync -t claude   # one tool
+npx ai-plugin sync            # update all
+npx ai-plugin sync --dry-run   # preview only
+npx ai-plugin sync -t claude   # one tool
 ```
 
 ### `list` — See what's available
 
 ```bash
-npx @ooolab/mobile-plugin list
+npx ai-plugin list
 
 RULES
   general       — Core coding standards for all OOOLab projects
@@ -208,7 +231,7 @@ shared/*.md  ──→  templates/*.hbs  ──→  project config files
 1. Create `.md` in the right `shared/` subdirectory
 2. Add frontmatter: `title` + `description` (minimum)
 3. Write content
-4. `npx @ooolab/mobile-plugin list` → verify it shows
+4. `npx ai-plugin list` → verify it shows
 5. Commit + push → all projects get it on next `sync`
 
 ## Adding a New AI Tool
@@ -260,7 +283,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install
-      - run: npx @ooolab/mobile-plugin sync
+      - run: npx ai-plugin sync
       - uses: peter-evans/create-pull-request@v6
         with:
           title: 'chore: sync AI plugin rules'
