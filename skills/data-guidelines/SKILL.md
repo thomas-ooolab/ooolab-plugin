@@ -96,6 +96,7 @@ import 'package:data/src/repository/repository.dart';
 - Doc comment: `/// Throws [DioException] if the api fails for some reason.`
 
 ```dart
+@injectable
 @RestApi()
 abstract interface class FeatureApi {
   factory FeatureApi(Dio dio) = _FeatureApi;
@@ -261,35 +262,7 @@ final class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
 ## Dependency Injection
 
-Data package uses `@InjectableInit.microPackage()` — all `@Injectable`/`@module` annotations auto-discovered.
-
-For third-party bindings (Dio, Retrofit APIs):
-
-```dart
-// lib/src/remote/datasource/remote_datasource_module.dart
-@module
-abstract class RemoteDataSourceModule {
-  @lazySingleton
-  FeatureRemoteDataSource feature(FeatureApi api) => FeatureRemoteDataSourceImpl(api);
-}
-
-// lib/src/local/datasource/local_datasource_module.dart
-@module
-abstract class LocalDataSourceModule {
-  @lazySingleton
-  FeatureLocalDataSource feature(Database db) => FeatureLocalDataSourceImpl(db);
-}
-```
-
-Accessing via `sl`:
-```dart
-final remote = sl<FeatureRemoteDataSource>();
-final local  = sl<FeatureLocalDataSource>();
-```
-
-Export interfaces only:
-- `lib/src/remote/remote.dart` — remote data source interfaces
-- `lib/src/local/local.dart` — local data source interfaces
+Data package uses `@InjectableInit.microPackage()` — all `@Injectable`/`@injectable`/`@module` annotations auto-discovered.
 
 ## Network (`lib/src/remote/network/`)
 
