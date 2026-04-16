@@ -6,6 +6,13 @@
                 "mcp-server",
                 "--force-roots-fallback"
             ]
+        },
+        "gitnexus": {
+            "command": "npx",
+            "args": [
+                "gitnexus",
+                "mcp"
+            ]
         }
     }
 }
