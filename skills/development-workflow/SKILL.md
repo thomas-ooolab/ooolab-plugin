@@ -1,6 +1,6 @@
 ---
 name: development-workflow
-description: "Development workflow covering git practices, CI/CD, setup, and feature development processes - focused on workflow and processes, not architecture or code patterns"
+description: "Git branching, feature development, CI/CD, and code quality processes for this project. Use when starting a feature branch, creating PRs, setting up the dev environment, or reviewing workflow conventions."
 ---
 
 # Development Workflow
@@ -188,7 +188,7 @@ refactor(bloc): simplify state management logic
 - Follow existing architecture patterns (see `@clean-architecture`)
 - Implement BLoC/Cubit for state management (see `@state-management`)
 - Add proper error handling
-- Include localization support (see `@localization-guidelines`)
+- Include localization support
 - Write comprehensive tests (see `@testing-guidelines`)
 
 ### 3. Testing
@@ -296,7 +296,7 @@ fvm dart format .
 fvm dart fix --apply
 
 # Generate translations (REQUIRED after updating translations/ files)
-# See @localization-guidelines for details
+
 fvm dart run melos generate-translation
 
 # Generate app icons
@@ -362,145 +362,13 @@ fvm flutter pub upgrade package_name
 - Optimize build times
 - Use code generation efficiently
 
-## Troubleshooting Common Issues
+## Troubleshooting
 
-### FVM Issues
-
-**Problem: "Command not found: fvm"**
-
-```bash
-# Install FVM globally via Dart
-dart pub global activate fvm
-
-# Or via Homebrew (macOS/Linux)
-brew tap leoafarias/fvm
-brew install fvm
-
-# Add to PATH (if needed)
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-```
-
-**Problem: "Flutter version not found"**
-
-```bash
-# Install Flutter version specified in .fvm/fvm_config.json
-fvm install
-
-# Use the project's Flutter version
-fvm use
-
-# List installed Flutter versions
-fvm list
-```
-
-**Problem: IDE not recognizing Flutter SDK**
-
-1. **VS Code**: Update `.vscode/settings.json`:
-   ```json
-   {
-     "dart.flutterSdkPath": ".fvm/flutter_sdk"
-   }
-   ```
-
-2. **Android Studio**: 
-   - Go to Settings → Languages & Frameworks → Flutter
-   - Set Flutter SDK path to `<project-root>/.fvm/flutter_sdk`
-
-**Problem: Commands failing without FVM prefix**
-
-- Remember: ALL Flutter/Dart commands require `fvm` prefix
-- Check if you're using `flutter` instead of `fvm flutter`
-- Update your muscle memory and terminal aliases
-
-### Build Runner Issues
-
-```bash
-# Clean and rebuild
-fvm dart run build_runner clean
-fvm dart run build_runner build -d
-```
-
-### Dependency Conflicts
-
-```bash
-# Check dependency tree
-fvm dart pub deps --style=tree
-
-# Check for conflicts
-fvm dart pub deps --style=compact
-
-# Resolve conflicts
-fvm flutter pub get
-```
-
-### Flutter Clean
-
-```bash
-# Clean build artifacts
-fvm flutter clean
-
-# Reinstall dependencies
-fvm flutter pub get
-
-# Regenerate code
-fvm dart run build_runner build -d
-```
-
-## Security Best Practices
-
-- Validate user inputs
-- Secure API communications
-- Protect sensitive data
-- Follow security best practices
-- Never commit secrets/credentials
-- Use environment variables for configuration
-
-## Accessibility Guidelines
-
-- Support screen readers
-- Provide alternative text
-- Ensure proper contrast ratios
-- Test with accessibility tools
-- Follow WCAG guidelines
-
-## Performance Monitoring
-
-### Development Monitoring
-
-- Use Flutter DevTools for profiling
-- Monitor widget rebuilds
-- Check memory usage
-- Profile network requests
-- Measure app startup time
-
-### Production Monitoring
-
-- Firebase Crashlytics for crash reporting
-- Firebase Performance for performance monitoring
-- Microsoft Clarity for user analytics
-- Monitor app store reviews
-
-## Continuous Improvement
-
-### Regular Tasks
-
-- **Weekly**: Review and update dependencies
-- **Monthly**: Performance profiling and optimization
-- **Quarterly**: Architecture review and refactoring
-- **As needed**: Security updates and patches
-
-### Metrics to Track
-
-- Test coverage percentage
-- Build times
-- App startup time
-- Memory usage
-- Crash-free rate
-- User satisfaction scores
+See [reference/troubleshooting.md](reference/troubleshooting.md) for FVM issues, build runner problems, and dependency conflicts.
 
 ## References
 
 - [Flutter Documentation](https://flutter.dev/docs)
 - [Dart Documentation](https://dart.dev/guides)
 - [GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
-- Project-specific skills: `@clean-architecture`, `@testing-guidelines`, `@flutter-coding-standards`, `@state-management`, `@dart-coding-standards`, `@localization-guidelines`, `@bash-scripting-standards`, `@add-whitelabel-guidelines`
+- Project-specific skills: `@clean-architecture`, `@testing-guidelines`, `@flutter-coding-standards`, `@state-management`, `@dart-coding-standards`, `@bash-scripting-standards`, `@add-whitelabel-guidelines`

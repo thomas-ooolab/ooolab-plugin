@@ -1,5 +1,5 @@
 {
-  "name": "mobile-plugin",
+  "name": "mobile",
   "version": "0.1.0",
   "description": "OOOLab shared AI rules, skills, agents, and commands for mobile (Flutter/Dart) projects",
   "author": {

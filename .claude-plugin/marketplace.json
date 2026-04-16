@@ -1,5 +1,5 @@
 {
-  "name": "ooolab-mobile",
+  "name": "ooolab",
   "owner": {
     "name": "OOOLab",
     "url": "https://github.com/ooolab"
@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "mobile-plugin",
+      "name": "mobile",
       "source": "./",
       "description": "Shared rules, skills, agents, and commands for OOOLab Flutter/Dart projects",
       "version": "0.1.0",
