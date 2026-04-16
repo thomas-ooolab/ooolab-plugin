@@ -1,12 +1,12 @@
 ---
-name: data-guidelines
+name: data
 description: "Data package guidelines for Retrofit API, remote/local data sources, models, and DI in packages/data. Use when adding or modifying API endpoints, data sources, data models, or implementing the data layer."
 ---
 
 ## Related Guidelines
 
-- `@clean-architecture` - Layer separation, dependency rules
-- `@dependency-injection-guidelines` - get_it, injectable, micropackage setup
+- `@clean` - Layer separation, dependency rules
+- `@di` - get_it, injectable, micropackage setup
 
 ## Folder Structure
 

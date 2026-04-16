@@ -1,5 +1,5 @@
 ---
-name: testing-guidelines
+name: test
 description: "Unit, widget, and integration testing with bloc_test and mocktail. Use when writing or reviewing tests for cubits, widgets, repositories, or setting up test helpers."
 ---
 

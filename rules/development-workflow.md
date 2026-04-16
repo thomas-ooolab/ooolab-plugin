@@ -21,22 +21,7 @@ This repository is **indexed by GitNexus**. For anything that depends on underst
    Set the content to the issue tracker URL for the ticket (e.g. `https://<your-tracker>/browse/<ticket_ID>`).
 
 2. **Create a new branch**  
-   - **Target branch**: Use the target branch the user provides; if none, use the project's default integration branch.
-   - **Branch name**: `<type>/<ticket_ID>` (e.g. `feat/PROJ-123`).
-   - **Type**: Pick one from the reference below:
-
-   | Type | Use for |
-   |------|--------|
-   | `feat` | New feature (non-breaking change which adds functionality) |
-   | `fix` | Bug fix (non-breaking change which fixes an issue) |
-   | `!` | Breaking change (fix or feature that would cause existing functionality to change) |
-   | `refactor` | Code refactor |
-   | `test` | Unit test |
-   | `ci` | Build configuration change |
-   | `docs` | Documentation |
-   | `chore` | Chore |
-
-   Example: new feature → branch `feat/PROJ-123` from the target branch.
+   Follow branch naming and type conventions in `@workflow`. Example: new feature → branch `feat/PROJ-123` from the target branch.
 
 3. **Implement the requirements**  
    Based on the provided requirements and your analysis, implement the work (delegate to subagents when the task matches the table below).
@@ -49,7 +34,7 @@ This repository is **indexed by GitNexus**. For anything that depends on underst
 
 ---
 
-Follow the project's development workflow (see `${CLAUDE_PLUGIN_ROOT}/skills/development-workflow/SKILL.md`). Summary:
+Follow the project's development workflow (see `${CLAUDE_PLUGIN_ROOT}/skills/workflow/SKILL.md`). Summary:
 
 - **FVM required**: Prefix all Flutter/Dart commands with `fvm` (e.g. `fvm flutter run`, `fvm dart run build_runner build -d`).
 - **Quality**: Format with `fvm dart run melos dart-format` (or `fvm dart format .`), run `fvm dart analyze`, use localization for user-visible strings, follow Clean Architecture.

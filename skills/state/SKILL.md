@@ -1,5 +1,5 @@
 ---
-name: state-management
+name: state
 description: "Cubit/BLoC patterns with flutter_bloc, @freezed states, DataLoadStatus enum, and injectable DI annotations. Use when implementing or reviewing cubits, state classes, BLoC patterns, or UI state integration."
 ---
 
@@ -29,7 +29,7 @@ dev_dependencies:
 
 ## Dependency Injection
 
-See `@dependency-injection-guidelines` for full setup: `sl` instance, `@InjectableInit`, annotations, micropackage modules, and external modules.
+See `@di` for full setup: `sl` instance, `@InjectableInit`, annotations, micropackage modules, and external modules.
 
 Quick reference for cubits:
 - `@injectable` — feature cubits (new instance per resolve)

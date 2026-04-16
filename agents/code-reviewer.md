@@ -30,14 +30,14 @@ Review checklist:
 - Performance is considered (no unnecessary rebuilds, heavy work off UI thread)
 
 **Dart / Flutter**
-- Widgets are implemented as Widget classes, not build methods (see @flutter-coding-standards)
+- Widgets are implemented as Widget classes, not build methods (see @flutter)
 - Const constructors used where possible
 - Prefer StatelessWidget; use StatefulWidget only for local UI state
 - Widgets stay focused and under ~200 lines; extract when larger
 - No `context` or framework types in domain/data layers
 
 **Architecture**
-- Presentation depends on domain; domain does not depend on UI (see @clean-architecture)
+- Presentation depends on domain; domain does not depend on UI (see @clean)
 - Business logic in use cases or Cubits, not in widgets or repositories
 - Repositories and services used via use cases/cubits, not directly from UI
 - Dependency injection used correctly; no manual instantiation of repositories/services in UI
@@ -49,7 +49,7 @@ Review checklist:
 
 **Testing**
 - New or changed behavior has or is covered by tests where appropriate
-- Tests follow project patterns (see @testing-guidelines)
+- Tests follow project patterns (see @test)
 
 **Security & data**
 - No PII or credentials in logs or error messages

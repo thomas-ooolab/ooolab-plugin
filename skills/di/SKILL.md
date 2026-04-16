@@ -1,13 +1,13 @@
 ---
-name: dependency-injection-guidelines
+name: di
 description: "get_it + injectable DI setup: sl instance, annotations (@injectable/@singleton), micropackage modules, and testing overrides. Use when wiring DI for new features, packages, cubits, or repositories."
 ---
 
 ## Related Guidelines
 
-- `@clean-architecture` - Layer separation, dependency rules, package constraints
-- `@state-management` - Cubit pattern, BLoC integration with DI
-- `@dart-coding-standards` - Dart language best practices
+- `@clean` - Layer separation, dependency rules, package constraints
+- `@state` - Cubit pattern, BLoC integration with DI
+- `@dart` - Dart language best practices
 
 ## Overview
 

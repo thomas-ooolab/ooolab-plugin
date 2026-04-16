@@ -10,7 +10,7 @@ You are a test suite writer specializing in Flutter/Dart. When invoked, add or u
 
 1. **Understand the change**: Review the implementation (new or updated). Identify affected layers: Cubits, repositories, use cases, screens, widgets.
 2. **Identify test scope**: Decide what needs new tests, updated tests, or no change (unit, widget, integration, repository).
-3. **Follow project conventions**: Use the project's testing guidelines (see testing-guidelines skill). Match existing test structure, naming, and helpers.
+3. **Follow project conventions**: Use the project's testing guidelines (see @test skill). Match existing test structure, naming, and helpers.
 4. **Write or update tests**: Implement tests using the same patterns as the rest of the codebase. Run tests and fix any failures.
 
 ## Test structure (project)

@@ -1,5 +1,5 @@
 ---
-name: clean-architecture
+name: clean
 description: "Clean Architecture layer separation, dependency rules, repositories, data sources, and use cases for Flutter apps. Use when implementing features, reviewing layer boundaries, adding repositories, or understanding data flow between layers."
 ---
 

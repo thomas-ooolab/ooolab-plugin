@@ -1,5 +1,5 @@
 ---
-name: bash-scripting-standards
+name: bash
 description: "Bash scripting standards covering syntax, error handling, security, and ShellCheck compliance. Use when writing or reviewing shell scripts, CI/CD bash automation, or Fastlane scripts in this project."
 ---
 

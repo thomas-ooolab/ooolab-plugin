@@ -178,19 +178,19 @@ RULES
   development-workflow     — Development workflow (FVM, git, quality) and subagent delegation
 
 SKILLS
-  bash-scripting-standards — Bash syntax, error handling, security, ShellCheck compliance
-  clean-architecture       — Layer separation, dependency rules, repositories, use cases
-  dart-coding-standards    — Naming, syntax, null safety, async, modern language features
-  data-guidelines          — Retrofit API, remote/local data sources, models, DI (packages/data)
-  dependency-injection-guidelines — get_it + injectable: annotations, modules, test overrides
-  development-workflow     — Git branching, feature development, CI/CD, code quality
-  domain-guidelines        — Repository interfaces, use cases, domain exceptions (packages/domain)
-  flutter-coding-standards — Widget architecture, composition rules, performance patterns
+  bash                     — Bash syntax, error handling, security, ShellCheck compliance
+  clean                    — Layer separation, dependency rules, repositories, use cases
+  dart                     — Naming, syntax, null safety, async, modern language features
+  data                     — Retrofit API, remote/local data sources, models, DI (packages/data)
+  di                       — get_it + injectable: annotations, modules, test overrides
+  workflow              — Git branching, feature development, CI/CD, code quality
+  domain                   — Repository interfaces, use cases, domain exceptions (packages/domain)
+  flutter                  — Widget architecture, composition rules, performance patterns
   git                      — Commits, branches, merges, rebases, conflict resolution, recovery
-  presentation-guidelines  — Screens, cubits, routes, barrel files (lib/screens/)
-  ruby-coding-standards    — Fastlane lane/helper design, env vars, shell safety, CI patterns
-  state-management         — Cubit/BLoC with flutter_bloc, @freezed states, DataLoadStatus
-  testing-guidelines       — Unit, widget, integration tests with bloc_test and mocktail
+  presentation             — Screens, cubits, routes, barrel files (lib/screens/)
+  ruby                     — Fastlane lane/helper design, env vars, shell safety, CI patterns
+  state                    — Cubit/BLoC with flutter_bloc, @freezed states, DataLoadStatus
+  test                     — Unit, widget, integration tests with bloc_test and mocktail
 
 AGENTS
   code-reviewer            — Proactive Dart/Flutter + Clean Architecture code reviewer

@@ -1,13 +1,13 @@
 ---
-name: domain-guidelines
+name: domain
 description: "Domain layer patterns for repository interfaces, use cases, domain exceptions, and DI wiring in packages/domain and lib/use_case. Use when adding repositories, use cases, or modifying business logic."
 ---
 
 ## Related Guidelines
 
-- `@clean-architecture` - Layer separation, dependency rules
-- `@dependency-injection-guidelines` - get_it, injectable, micropackage setup
-- `@data-guidelines` - Data source patterns domain depends on
+- `@clean` - Layer separation, dependency rules
+- `@di` - get_it, injectable, micropackage setup
+- `@data` - Data source patterns domain depends on
 
 ## Package Dependency Rules (enforce strictly)
 
@@ -34,7 +34,7 @@ packages/domain/lib/src/<domain>/
     └── <domain>_exception.dart       # domain exceptions
 ```
 
-> Implementation lives in `packages/data/lib/src/repository/` — see `@data-guidelines`.
+> Implementation lives in `packages/data/lib/src/repository/` — see `@data`.
 
 ### Barrel Contents
 

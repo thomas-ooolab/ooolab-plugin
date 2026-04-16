@@ -1,6 +1,6 @@
 ---
-name: development-workflow
-description: "Git branching, feature development, CI/CD, and code quality processes for this project. Use when starting a feature branch, creating PRs, setting up the dev environment, or reviewing workflow conventions."
+name: workflow
+description: "Git branching, feature development, and code quality processes for this project. Use when starting a feature branch, creating PRs, setting up the dev environment, or reviewing workflow conventions."
 ---
 
 # Development Workflow
@@ -11,10 +11,10 @@ Guidelines for git workflow, CI/CD integration, and development processes specif
 ## Related Guidelines
 
 This document covers development workflow and processes. For implementation details, see:
-- `@clean-architecture` - Architecture patterns and implementation
-- `@testing-guidelines` - Testing strategies and commands
-- `@flutter-coding-standards` - Flutter implementation patterns
-- `@state-management` - BLoC/Cubit implementation
+- `@clean` - Architecture patterns and implementation
+- `@test` - Testing strategies and commands
+- `@flutter` - Flutter implementation patterns
+- `@state` - BLoC/Cubit implementation
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ fvm flutter run --flavor sandbox \
   --dart-define-from-file environment_configurations/certificates/.trusted_fingerprints.env
 ```
 
-**Ooolab / Nihaoma / Soa / Nse:** Same pattern: `--flavor <name>` with `environment_configurations/api/.production.env` and `environment_configurations/tenant/.<name>.env`, plus `.general.env` and the two certificate env files. See README §10 for exact commands.
+**Other production-based flavors** (`--flavor <name>`): use `environment_configurations/api/.production.env` + `environment_configurations/tenant/.<name>.env` + `.general.env` + both certificate env files.
 
 ### Code Generation
 
@@ -143,10 +143,19 @@ fvm dart run build_runner build -d
 
 ### Branch Naming Convention
 
-- Feature branches: `feature/LOE-XXXX-description`
-- Bug fixes: `bugfix/LOE-XXXX-description`
-- Hotfixes: `hotfix/LOE-XXXX-description`
-- Refactoring: `refactor/LOE-XXXX-description`
+- **Target branch**: Use the target branch the user provides; if none, use the project's default integration branch.
+- **Branch name**: `<type>/<ticket_ID>` (e.g. `feat/PROJ-123`).
+
+| Type | Use for |
+|------|--------|
+| `feat` | New feature (non-breaking change which adds functionality) |
+| `fix` | Bug fix (non-breaking change which fixes an issue) |
+| `!` | Breaking change (fix or feature that would cause existing functionality to change) |
+| `refactor` | Code refactor |
+| `test` | Unit test |
+| `ci` | Build configuration change |
+| `docs` | Documentation |
+| `chore` | Chore |
 
 ### Commit Message Format
 
@@ -185,11 +194,11 @@ refactor(bloc): simplify state management logic
 - Identify dependencies and affected packages
 
 ### 2. Implementation
-- Follow existing architecture patterns (see `@clean-architecture`)
-- Implement BLoC/Cubit for state management (see `@state-management`)
+- Follow existing architecture patterns (see `@clean`)
+- Implement BLoC/Cubit for state management (see `@state`)
 - Add proper error handling
 - Include localization support
-- Write comprehensive tests (see `@testing-guidelines`)
+- Write comprehensive tests (see `@test`)
 
 ### 3. Testing
 - Unit tests for business logic
@@ -232,52 +241,6 @@ fvm dart format --set-exit-if-changed .
 - [ ] Follows architecture patterns
 - [ ] Widget classes used (not build methods)
 
-## Build and Deployment
-
-### Build Configuration
-
-```bash
-# Android build
-fvm flutter build apk --flavor production
-fvm flutter build appbundle --flavor production
-
-# iOS build
-fvm flutter build ios --flavor production
-
-# Web build
-fvm flutter build web --flavor production
-```
-
-### Release Process
-
-1. Update version in `pubspec.yaml`
-2. Create release branch
-3. Run full test suite
-4. Build for all platforms
-5. Create release tag
-6. Deploy to app stores
-
-## CI/CD Integration
-
-The project integrates with GitLab CI/CD pipeline:
-
-### GitLab CI Configuration
-
-- **Automatic version detection** in CI scripts
-- **Environment-specific builds** with updated versions
-- **Dependency caching** for faster builds
-- **Multi-platform builds** after upgrades
-- **Automated testing** on pull requests
-- **Code quality checks**
-- **Build verification**
-- **Deployment automation**
-
-### Quality Gates
-
-- All tests must pass
-- Code coverage requirements met
-- Linting rules compliance
-- Performance benchmarks passed
 
 ## Tools and Commands
 
@@ -370,5 +333,4 @@ See [reference/troubleshooting.md](reference/troubleshooting.md) for FVM issues,
 
 - [Flutter Documentation](https://flutter.dev/docs)
 - [Dart Documentation](https://dart.dev/guides)
-- [GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
-- Project-specific skills: `@clean-architecture`, `@testing-guidelines`, `@flutter-coding-standards`, `@state-management`, `@dart-coding-standards`, `@bash-scripting-standards`, `@add-whitelabel-guidelines`
+- Project-specific skills: `@clean`, `@test`, `@flutter`, `@state`, `@dart`, `@bash`, `@add-whitelabel-guidelines`

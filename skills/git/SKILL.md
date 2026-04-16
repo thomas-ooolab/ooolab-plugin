@@ -200,4 +200,4 @@ For a compact command reference, see [reference.md](reference.md).
 
 ## Related
 
-- **Project workflow**: For this repo’s branching and PR flow, see `@development-workflow`.
+- **Project workflow**: For this repo’s branching and PR flow, see `@workflow`.

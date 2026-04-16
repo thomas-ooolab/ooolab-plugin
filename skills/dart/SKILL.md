@@ -1,5 +1,5 @@
 ---
-name: dart-coding-standards
+name: dart
 description: "Dart naming, syntax, documentation, design principles, and modern language features. Use when writing Dart code, reviewing style, enforcing conventions, or using null safety and async patterns."
 ---
 

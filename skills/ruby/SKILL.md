@@ -1,5 +1,5 @@
 ---
-name: ruby-coding-standards
+name: ruby
 description: Defines Ruby coding standards for Fastlane automation in this repository, including lane/helper design, environment variable handling, shell command safety, and CI-compatible patterns. Use when editing Fastfiles, shared Fastlane Ruby files, or reviewing Ruby code used by mobile build/distribution pipelines.
 ---
 

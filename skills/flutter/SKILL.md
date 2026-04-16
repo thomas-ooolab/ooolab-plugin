@@ -1,15 +1,15 @@
 ---
-name: flutter-coding-standards
+name: flutter
 description: "Flutter widget architecture, composition rules, and performance patterns. Use when writing or reviewing Flutter widgets, screens, or UI components in this project."
 ---
 
 ## Related Guidelines
 
 This document focuses on Flutter-specific patterns. For complete guidance, also refer to:
-- `@dart-coding-standards` - Dart language best practices, patterns, naming conventions
-- `@state-management` - BLoC/Cubit patterns, state management, testing
-- `@clean-architecture` - Layer separation, dependency injection, repositories
-- `@testing-guidelines` - Testing strategies and patterns
+- `@dart` - Dart language best practices, patterns, naming conventions
+- `@state` - BLoC/Cubit patterns, state management, testing
+- `@clean` - Layer separation, dependency injection, repositories
+- `@test` - Testing strategies and patterns
 
 ## Key Principles
 
@@ -35,7 +35,7 @@ This document focuses on Flutter-specific patterns. For complete guidance, also 
 - Use const constructors wherever possible
 - Use StatelessWidget by default
 - Use StatefulWidget ONLY for local UI state (animations, controllers)
-- Use BLoC/Cubit for business logic (see `@state-management`)
+- Use BLoC/Cubit for business logic (see `@state`)
 - Use ListView.builder for long lists
 - Use CachedNetworkImage for network images
 - Use keys for list items
@@ -75,4 +75,4 @@ This document focuses on Flutter-specific patterns. For complete guidance, also 
 - [Flutter Official Documentation](https://flutter.dev/docs)
 - [Flutter Performance Best Practices](https://flutter.dev/docs/perf/best-practices)
 - [Material Design 3](https://m3.material.io/)
-- See also: `@dart-coding-standards`, `@state-management`, `@clean-architecture`, `@testing-guidelines`
+- See also: `@dart`, `@state`, `@clean`, `@test`

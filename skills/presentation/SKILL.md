@@ -1,14 +1,14 @@
 ---
-name: presentation-guidelines
+name: presentation
 description: "Presentation layer structure for screens, cubits, routes, and views in lib/screens/. Use when adding or modifying Flutter screens, cubits, routes, barrel files, or feature presentation code."
 ---
 
 ## Related Guidelines
 
-- `@flutter-coding-standards` - Widget architecture, composition, performance
-- `@state-management` - BLoC/Cubit patterns, freezed state, DI annotations
-- `@clean-architecture` - Layer separation, dependency rules
-- `@dependency-injection-guidelines` - sl, injectable, BlocProvider wiring
+- `@flutter` - Widget architecture, composition, performance
+- `@state` - BLoC/Cubit patterns, freezed state, DI annotations
+- `@clean` - Layer separation, dependency rules
+- `@di` - sl, injectable, BlocProvider wiring
 
 ## File Organization
 
@@ -21,7 +21,7 @@ All features follow a consistent directory structure with barrel files for clean
 ```
 lib/screens/[feature_name]/
 ├── [feature_name].dart           # Barrel file - exports all public APIs
-├── cubit/                        # State management (see @state-management)
+├── cubit/                        # State management (see @state)
 │   ├── cubit.dart                # Barrel — exports cubits and states
 │   ├── [feature]_cubit.dart      # Main Cubit for feature
 │   └── [feature]_state.dart      # State definitions
@@ -361,7 +361,7 @@ class FeatureCubit extends Cubit<FeatureState> with CubitMixin<FeatureState> {
 ### Views (Screens)
 
 - Prefer `StatelessWidget`; `StatefulWidget` only for local UI state
-- Widget classes for UI components — not build methods (see `@flutter-coding-standards`)
+- Widget classes for UI components — not build methods (see `@flutter`)
 - `BlocProvider` to create cubit; `BlocBuilder`/`BlocListener` to react to state
 - Design system from `packages/vle_ui` (VleColors, VleDimens, VleTextStyles, VleButton, etc.)
 - Use `LocalizationKeys.*.tr()` for all user-visible strings

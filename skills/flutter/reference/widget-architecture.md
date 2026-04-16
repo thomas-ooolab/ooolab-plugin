@@ -230,7 +230,7 @@ class _ExpandableCardState extends State<ExpandableCard> {
 }
 ```
 
-- **DON'T** use StatefulWidget for business logic (use BLoC/Cubit per `@state-management`).
+- **DON'T** use StatefulWidget for business logic (use BLoC/Cubit per `@state`).
 ```dart
 // ❌ BAD - StatefulWidget managing business logic
 class UserListScreen extends StatefulWidget {
@@ -258,7 +258,7 @@ class _UserListScreenState extends State<UserListScreen> {
   // ...
 }
 
-// ✅ GOOD - Use BLoC/Cubit for business logic (see @state-management)
+// ✅ GOOD - Use BLoC/Cubit for business logic (see @state)
 class UserListScreen extends StatelessWidget {
   const UserListScreen({super.key});
 
