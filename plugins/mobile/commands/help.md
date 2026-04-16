@@ -5,6 +5,10 @@ description: List all available commands and skills in this plugin
 
 # Help
 
+When this command runs, print the following content exactly as-is to the user — no commentary, no preamble, no summary after.
+
+---
+
 Quick reference for all commands and skills available in this mobile plugin.
 
 ---
