@@ -2,7 +2,7 @@
   <img src="https://em-content.zobj.net/source/apple/391/electric-plug_1f50c.png" width="120" />
 </p>
 
-<h1 align="center">@ooolab/mobile-plugin</h1>
+<h1 align="center">@ooolab/ooolab-plugin</h1>
 
 <p align="center">
   <strong>one source of truth for AI rules across every project, every tool, every stack</strong>

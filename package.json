@@ -1,11 +1,10 @@
 {
-  "name": "@ooolab/mobile-plugin",
+  "name": "@ooolab/ooolab-plugin",
   "version": "0.1.0",
   "description": "Shared AI skills, agents, rules, and commands for mobile, backend, and frontend projects",
   "type": "module",
   "bin": {
-    "ooolab-plugin": "./bin/ooolab-plugin.js",
-    "mobile-plugin": "./bin/ooolab-plugin.js"
+    "ooolab-plugin": "./bin/ooolab-plugin.js"
   },
   "scripts": {
     "lint": "eslint src/",
