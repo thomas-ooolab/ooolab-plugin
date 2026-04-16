@@ -21,12 +21,12 @@ class FeatureCubit extends Cubit<FeatureState> with CubitMixin<FeatureState> {
   final FeatureRepository _repository;
 
   Future<void> load() async {
-    safeEmit(state.copyWith(status: DataLoadStatus.loading));
+    safeEmit(state.copyWith(status: .loading));
     try {
       final data = await _repository.getData();
-      safeEmit(state.copyWith(status: DataLoadStatus.success, data: data));
+      safeEmit(state.copyWith(status: .success, data: data));
     } catch (e) {
-      safeEmit(state.copyWith(status: DataLoadStatus.failure, errorMessage: e.toString()));
+      safeEmit(state.copyWith(status: .failure, errorMessage: e.toString()));
     }
   }
 }
@@ -43,13 +43,13 @@ Use `refreshing` status for background reloads that should show stale data while
 ```dart
 Future<void> refresh() async {
   // Show stale data + loading indicator, not full loading spinner
-  safeEmit(state.copyWith(status: DataLoadStatus.refreshing));
+  safeEmit(state.copyWith(status: .refreshing));
   try {
     final data = await _repository.getData();
-    safeEmit(state.copyWith(status: DataLoadStatus.success, data: data));
+    safeEmit(state.copyWith(status: .success, data: data));
   } catch (e) {
     // Keep existing data visible, show error
-    safeEmit(state.copyWith(status: DataLoadStatus.failure, errorMessage: e.toString()));
+    safeEmit(state.copyWith(status: .failure, errorMessage: e.toString()));
   }
 }
 ```
@@ -58,14 +58,14 @@ UI switch — show content for both `refreshing` and `success`:
 
 ```dart
 switch (state.status) {
-  DataLoadStatus.initial    => const SizedBox.shrink(),
-  DataLoadStatus.loading    => const CircularProgressIndicator(),
-  DataLoadStatus.refreshing => Stack(children: [
+  .initial    => const SizedBox.shrink(),
+  .loading    => const CircularProgressIndicator(),
+  .refreshing => Stack(children: [
       FeatureList(features: state.features),
       const LinearProgressIndicator(),  // subtle reload indicator
     ]),
-  DataLoadStatus.success    => FeatureList(features: state.features),
-  DataLoadStatus.failure    => ErrorView(message: state.errorMessage ?? ''),
+  .success    => FeatureList(features: state.features),
+  .failure    => ErrorView(message: state.errorMessage ?? ''),
 }
 ```
 
@@ -100,18 +100,18 @@ class LoginCubit extends Cubit<LoginState> with CubitMixin<LoginState> {
   final AuthenticationRepository _authRepository;
 
   void emailChanged(String email) =>
-      safeEmit(state.copyWith(email: email, status: FormStatus.initial));
+      safeEmit(state.copyWith(email: email, status: .initial));
 
   void passwordChanged(String password) =>
-      safeEmit(state.copyWith(password: password, status: FormStatus.initial));
+      safeEmit(state.copyWith(password: password, status: .initial));
 
   Future<void> submit() async {
-    safeEmit(state.copyWith(status: FormStatus.submitting));
+    safeEmit(state.copyWith(status: .submitting));
     try {
       await _authRepository.login(email: state.email, password: state.password);
-      safeEmit(state.copyWith(status: FormStatus.success));
+      safeEmit(state.copyWith(status: .success));
     } catch (e) {
-      safeEmit(state.copyWith(status: FormStatus.failure, errorMessage: e.toString()));
+      safeEmit(state.copyWith(status: .failure, errorMessage: e.toString()));
     }
   }
 }
@@ -146,7 +146,7 @@ class FeatureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<FeatureCubit, FeatureState>(
-      listenWhen: (prev, curr) => curr.status == DataLoadStatus.failure,
+      listenWhen: (prev, curr) => curr.status == .failure,
       listener: (context, state) => _showError(context, state.errorMessage),
       child: BlocBuilder<FilterCubit, FilterState>(
         builder: (context, filterState) {

@@ -190,7 +190,44 @@ This generates `lib/core/di/injection.config.dart` with all registrations.
 
 ## Registration Patterns
 
-### Repository (Domain Layer)
+### API (Retrofit) — Data Layer
+
+Retrofit APIs use factory constructors — can't annotate directly. Bind via `@module`:
+
+```dart
+// packages/data/lib/src/remote/api/feature/feature_api_module.dart
+@module
+abstract class FeatureApiModule {
+  @lazySingleton
+  FeatureApi featureApi(Dio dio) => FeatureApi(dio);
+}
+```
+
+### Data Source — Data Layer
+
+Annotate impl with `@Injectable(as: Interface)` — auto-discovered by micropackage init:
+
+```dart
+// Remote
+@Injectable(as: FeatureRemoteDataSource)
+final class FeatureRemoteDataSourceImpl implements FeatureRemoteDataSource {
+  FeatureRemoteDataSourceImpl(this._api);
+  final FeatureApi _api;
+}
+
+// Local
+@Injectable(as: FeatureLocalDataSource)
+final class FeatureLocalDataSourceImpl implements FeatureLocalDataSource {
+  FeatureLocalDataSourceImpl(this._box);
+  final Box _box;
+}
+```
+
+Export interfaces only from barrel files:
+- `lib/src/remote/remote.dart` — remote data source interfaces
+- `lib/src/local/local.dart` — local data source interfaces
+
+### Repository — Domain Layer
 
 ```dart
 // packages/domain/lib/src/authentication/authentication_repository.dart
@@ -232,7 +269,7 @@ final class AuthenticationRepositoryImpl implements AuthenticationRepository {
 }
 ```
 
-### Use Case
+### Use Case — Domain Layer
 
 ```dart
 // lib/use_case/account/determine_account/determine_account_uc.dart
@@ -266,7 +303,7 @@ final class DetermineAccountUseCaseImpl implements DetermineAccountUseCase {
 }
 ```
 
-### Cubit (Presentation Layer)
+### Cubit — Presentation Layer
 
 ```dart
 @injectable
@@ -295,36 +332,6 @@ abstract class AppModule {
   SharedPreferences get sharedPreferences => throw UnimplementedError();
 }
 ```
-
-## Data Package Data Source Registration
-
-Data sources use `@Injectable`/`@module` annotations — auto-discovered by micropackage init. For third-party bindings (Dio, Retrofit APIs), use `@module`:
-
-```dart
-// packages/data/lib/src/remote/datasource/remote_datasource_module.dart
-@module
-abstract class RemoteDataSourceModule {
-  @lazySingleton
-  FeatureRemoteDataSource feature(FeatureApi api) => FeatureRemoteDataSourceImpl(api);
-}
-
-// packages/data/lib/src/local/datasource/local_datasource_module.dart
-@module
-abstract class LocalDataSourceModule {
-  @lazySingleton
-  FeatureLocalDataSource feature(Database db) => FeatureLocalDataSourceImpl(db);
-}
-```
-
-Accessing registered data sources via `sl`:
-```dart
-final remoteDs = sl<FeatureRemoteDataSource>();
-final localDs  = sl<FeatureLocalDataSource>();
-```
-
-Export data source interfaces (not implementations) from barrel files:
-- `lib/src/remote/remote.dart` — remote data source interfaces
-- `lib/src/local/local.dart` — local data source interfaces
 
 ## Accessing Dependencies in Presentation Layer
 
