@@ -53,4 +53,6 @@ If violations found:
 - Simple fix (rename, frontmatter tweak, remove emoji) → auto-fix, no prompt
 - Complex fix (restructure content, split file, rethink scope) → show issue + proposed fix, wait for confirm
 
-Report: files created + checklist items passed/fixed.
+If violations remain → repeat Step 4 until clean.
+
+Once all checks pass: ask user "All issues resolved — run /commit?" If confirmed, run `/commit`.
