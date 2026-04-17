@@ -5,6 +5,7 @@ description: "Presentation layer structure for screens, cubits, routes, and view
 
 ## Related Guidelines
 
+- `@dart` - Dart language best practices, naming, modern features
 - `@flutter` - Widget architecture, composition, performance
 - `@state` - BLoC/Cubit patterns, freezed state, DI annotations
 - `@clean` - Layer separation, dependency rules

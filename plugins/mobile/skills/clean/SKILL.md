@@ -3,6 +3,15 @@ name: clean
 description: "Clean Architecture layer separation, dependency rules, repositories, data sources, and use cases for Flutter apps. Use when implementing features, reviewing layer boundaries, adding repositories, or understanding data flow between layers."
 ---
 
+## Related Guidelines
+
+- `@dart` - Dart language features used to enforce layer boundaries
+- `@presentation` - Presentation layer structure and screen patterns
+- `@domain` - Repository interfaces and use case patterns
+- `@data` - Data source and repository implementation patterns
+- `@di` - Dependency injection wiring across layers
+- `@state` - State management within the presentation layer
+
 # Clean Architecture Guidelines
 
 ## Architecture Overview

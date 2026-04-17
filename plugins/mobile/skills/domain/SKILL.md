@@ -5,6 +5,7 @@ description: "Domain layer patterns for repository interfaces, use cases, domain
 
 ## Related Guidelines
 
+- `@dart` - Dart language best practices, naming, modern features
 - `@clean` - Layer separation, dependency rules
 - `@di` - get_it, injectable, micropackage setup
 - `@data` - Data source patterns domain depends on

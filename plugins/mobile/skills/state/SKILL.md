@@ -3,6 +3,12 @@ name: state
 description: "Cubit/BLoC patterns with flutter_bloc, @freezed states, DataLoadStatus enum, and injectable DI annotations. Use when implementing or reviewing cubits, state classes, BLoC patterns, or UI state integration."
 ---
 
+## Related Guidelines
+
+- `@dart` - Dart language best practices, naming, modern features
+- `@di` - sl, injectable, BlocProvider wiring
+- `@clean` - Layer separation, dependency rules
+
 # Cubit State Management Guidelines
 
 ## Overview

@@ -3,6 +3,15 @@ name: test
 description: "Unit, widget, and integration testing with bloc_test and mocktail. Use when writing or reviewing tests for cubits, widgets, repositories, or setting up test helpers."
 ---
 
+## Related Guidelines
+
+- `@dart` - Dart language patterns used in test code
+- `@state` - Cubit/BLoC patterns being tested
+- `@presentation` - Screen and widget structures under test
+- `@domain` - Use case interfaces being mocked
+- `@data` - Repository impls and data sources being tested
+- `@clean` - Layer boundaries enforced by test isolation
+
 # Testing Guidelines
 
 ## Testing Strategy

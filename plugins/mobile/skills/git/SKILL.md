@@ -3,6 +3,12 @@ name: git
 description: Expert Git guidance for commits, branches, merges, rebases, remotes, conflict resolution, and recovery. Use when performing git operations, writing commit messages, managing branches, syncing with remote, resolving merge conflicts, or undoing changes.
 ---
 
+## Related Guidelines
+
+- `@bash` - Bash scripts that automate git operations
+- `@workflow` - Branch and PR workflow conventions
+- `@ruby` - Fastlane lanes that trigger git operations
+
 # Git
 
 Expert guidance for version control with Git. Use this skill for any git operation, commit workflow, branching, merging, rebasing, remote sync, or recovery.

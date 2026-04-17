@@ -3,6 +3,12 @@ name: ruby
 description: Defines Ruby coding standards for Fastlane automation in this repository, including lane/helper design, environment variable handling, shell command safety, and CI-compatible patterns. Use when editing Fastfiles, shared Fastlane Ruby files, or reviewing Ruby code used by mobile build/distribution pipelines.
 ---
 
+## Related Guidelines
+
+- `@bash` - Shell commands invoked from Fastlane lanes
+- `@git` - Git operations triggered by Fastlane workflows
+- `@workflow` - CI/CD pipeline context Fastlane operates in
+
 # Ruby Coding Standards (Fastlane)
 
 Use this skill when writing or reviewing Ruby code in:

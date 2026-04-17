@@ -3,6 +3,12 @@ name: bash
 description: "Bash scripting standards covering syntax, error handling, security, and ShellCheck compliance. Use when writing or reviewing shell scripts, CI/CD bash automation, or Fastlane scripts in this project."
 ---
 
+## Related Guidelines
+
+- `@ruby` - Fastlane Ruby scripts that invoke bash commands
+- `@workflow` - CI/CD pipeline context where bash scripts run
+- `@git` - Git operations commonly scripted in bash
+
 # Bash Scripting Standards
 
 Expert-level guidelines for writing efficient, maintainable, and secure bash scripts following modern best practices and ShellCheck standards.

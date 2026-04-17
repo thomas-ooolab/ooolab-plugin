@@ -3,6 +3,12 @@ name: dart
 description: "Dart naming, syntax, documentation, design principles, and modern language features. Use when writing Dart code, reviewing style, enforcing conventions, or using null safety and async patterns."
 ---
 
+## Related Guidelines
+
+- `@flutter` - Flutter widget patterns built on Dart
+- `@state` - Cubit/BLoC patterns using Dart class features
+- `@clean` - Architecture patterns enforced through Dart interfaces/abstractions
+
 # Dart Coding Standards
 
 This project uses FVM (Flutter Version Management). Always prefix Dart commands with `fvm dart`.
@@ -18,6 +24,26 @@ This project uses FVM (Flutter Version Management). Always prefix Dart commands 
 6. **Use Extension Types** - Create zero-cost wrappers with compile-time safety
 7. **Use Enhanced Enums** - Add methods and properties to enums
 8. **Use Dot Shorthand (Dart 3.10+)** - Eliminate redundant type names when the context already defines them
+
+### Memory: Prefer `late final` over `static const` for Object Collections
+
+`static const` holds data in static memory for the app's entire lifetime. For collections containing non-primitive objects (widget configs, icon defs, etc.), use `late final` — initialized once per instance, freed when the object is GC'd.
+
+```dart
+// ❌ BAD — static storage lives forever, all _TabDef objects pinned in memory
+static const _tabs = <_TabDef>[
+  _TabDef(label: 'Home', icon: Icons.grid_view_rounded),
+  _TabDef(label: 'Calls', icon: Icons.phone_outlined),
+];
+
+// ✅ GOOD — lazy, tied to instance lifecycle
+late final _tabs = <_TabDef>[
+  _TabDef(label: 'Home', icon: Icons.grid_view_rounded),
+  _TabDef(label: 'Calls', icon: Icons.phone_outlined),
+];
+```
+
+`static const` is fine for primitives (`static const int maxRetries = 3`) or true compile-time constants. Avoid it for object graphs.
 
 ### Quick Examples
 

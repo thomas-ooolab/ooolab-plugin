@@ -5,6 +5,7 @@ description: "Data package guidelines for Retrofit API, remote/local data source
 
 ## Related Guidelines
 
+- `@dart` - Dart language best practices, naming, modern features
 - `@clean` - Layer separation, dependency rules
 - `@di` - get_it, injectable, micropackage setup
 
