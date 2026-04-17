@@ -57,4 +57,4 @@ If violations found:
 
 If violations remain → repeat Step 4 until clean.
 
-Once all checks pass: run `/commit` automatically.
+Once all checks pass: notify user "All clean — running /commit in 30s. Reply to cancel.", wait 30 seconds, then run `/commit`.
