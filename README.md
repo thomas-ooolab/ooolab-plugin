@@ -72,7 +72,7 @@ Claude Code loads skills, agents, commands, and hooks natively. Always current �
 │  STACKS            ████████ mobile       │
 │                    ░░░░░░░░ be (soon)    │
 │                    ░░░░░░░░ fe (soon)    │
-│  SHARED SKILLS     ████████ 13 skills   │
+│  SHARED SKILLS     ████████ 14 skills   │
 │  SHARED AGENTS     ████████ 5 agents    │
 │  SHARED COMMANDS   ████████ 3 cmds      │
 │  SUPPORTED TOOLS   ████████ 2 tools     │
@@ -187,6 +187,7 @@ SKILLS
   flutter                  — Widget architecture, composition rules, performance patterns
   git                      — Commits, branches, merges, rebases, conflict resolution, recovery
   presentation             — Screens, cubits, routes, barrel files (lib/screens/)
+  pubspec                  — pubspec.yaml dependency management, always use latest pub.dev versions
   ruby                     — Fastlane lane/helper design, env vars, shell safety, CI patterns
   state                    — Cubit/BLoC with flutter_bloc, @freezed states, DataLoadStatus
   test                     — Unit, widget, integration tests with bloc_test and mocktail
