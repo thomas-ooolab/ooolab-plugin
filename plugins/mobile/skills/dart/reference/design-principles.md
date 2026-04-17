@@ -225,21 +225,40 @@ names.forEach((name) => print(name));
 users.map((user) => toUpperCase(user));
 ```
 
-- **DON'T** pass the argument if its value is the default.
+- **DON'T** pass the argument if its value is the default (`avoid_redundant_argument_values`). Omit any argument whose value matches the parameter's declared default — it adds noise without changing behavior. Reference: [avoid_redundant_argument_values](https://dart.dev/tools/diagnostics/avoid_redundant_argument_values)
+
 ```dart
+// --- null defaults ---
 // Good
-Widget build(BuildContext context) {
-  return Container();
-}
+Widget build(BuildContext context) => Container();
 
 // Bad
-Widget build(BuildContext context) {
-  return Container(
-    width: null,
-    height: null,
-    child: null,
-  );
-}
+Widget build(BuildContext context) => Container(
+  width: null,       // default is null
+  height: null,      // default is null
+  child: null,       // default is null
+);
+
+// --- bool defaults ---
+void fetchData({bool useCache = true, bool showLoader = false}) {}
+
+// Good
+fetchData();
+fetchData(showLoader: true);   // non-default: include
+
+// Bad
+fetchData(useCache: true);     // same as default — omit
+fetchData(showLoader: false);  // same as default — omit
+
+// --- numeric / enum defaults ---
+void animate({Duration duration = const Duration(milliseconds: 300), Curve curve = Curves.easeIn}) {}
+
+// Good
+animate();
+animate(duration: const Duration(seconds: 1));  // non-default: include
+
+// Bad
+animate(curve: Curves.easeIn);  // same as default — omit
 ```
 
 - **DO** use `=>` for simple members.

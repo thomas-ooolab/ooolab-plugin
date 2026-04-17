@@ -148,7 +148,7 @@ for (final user in users) {
 ## Best Practices Summary
 
 ### DO
-- Use dot shorthand for **all** enum usages with explicit context type — never write `EnumType.member` when the surrounding type is already known (assignments, parameters, switch arms, collections, `==`/`!=`)
+- Use dot shorthand for **all** enum usages with explicit context type — never write `EnumType.member` when the surrounding type is already known (assignments, arguments, default param values, switch arms, collections, `==`/`!=`)
 - Use `UpperCamelCase` for types
 - Use `lowerCamelCase` for members
 - Use `lowercase_with_underscores` for libraries
@@ -186,6 +186,7 @@ for (final user in users) {
 - Order parameters consistently (required first, optional with defaults last)
 
 ### DON'T
+- Pass arguments whose value matches the parameter's default (`avoid_redundant_argument_values`) — omit them entirely
 - Use `new` keyword
 - Use `dynamic` unless necessary
 - Pass arguments with default values

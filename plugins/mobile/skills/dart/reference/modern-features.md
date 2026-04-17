@@ -517,11 +517,20 @@ List<Color> palette = [.red, .green, .blue];
 // GOOD — return type provides context
 Color defaultColor() => .red;
 
+// GOOD — default parameter value: param type supplies context
+void paintWall({Color color = .white}) {}
+class Button {
+  const Button({this.color = .primary});
+  final Color color;
+}
+
 // BAD — redundant type name when context is clear
-Color myColor = Color.green;       // context already Color
-setColor(Color.red);               // param already Color
-final Color c = Color.blue;        // variable type already Color
-List<Color> p = [Color.red];       // list type already Color
+Color myColor = Color.green;             // context already Color
+setColor(Color.red);                     // param already Color
+final Color c = Color.blue;             // variable type already Color
+List<Color> p = [Color.red];            // list type already Color
+void paintWall({Color color = Color.white}) {}  // default already Color
+Button({this.color = Color.primary});   // default already Color
 
 // ERROR — no context type: var/final without annotation
 var myColor = .green;      // type unknown
@@ -631,7 +640,7 @@ final priorities = [.low, .high]; // Error: Type missing
 ### Best Practices
 
 **MUST (Enum)**
-- Use dot shorthand for **all** enum usages where context type is explicit: assignments, parameters, return values, switch arms, collections, and equality checks.
+- Use dot shorthand for **all** enum usages where context type is explicit: assignments, arguments, default parameter values, return values, switch arms, collections, and equality checks.
 - Never write `EnumType.member` when the surrounding context already supplies the enum type.
 
 **DO**
