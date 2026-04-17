@@ -38,12 +38,14 @@ packages/domain/lib/src/<domain>/
 
 ### Barrel Contents
 
+Only export symbols consumed outside the folder. Do not export internal helpers or types only used within the same directory.
+
 ```dart
-// <domain>.dart
+// <domain>.dart — exported because consumers import repository interface and exceptions
 export '<domain>_repository.dart';
 export 'exception/exception.dart';
 
-// exception/exception.dart
+// exception/exception.dart — exported because exceptions are caught by callers outside
 export '<domain>_exception.dart';
 ```
 
@@ -83,12 +85,14 @@ lib/use_case/<domain>/
 
 ### Barrel Contents
 
+Only export symbols consumed outside the folder. Do not export impl — callers depend on the interface only.
+
 ```dart
-// use_case/<domain>/<domain>.dart
+// use_case/<domain>/<domain>.dart — re-exports feature barrels for consumers
 export '<feature>/<feature>.dart';
 
-// use_case/<domain>/<feature>/<feature>.dart
-export '<use_case_name>_uc.dart';  // interface only — never export impl
+// use_case/<domain>/<feature>/<feature>.dart — interface only; impl is internal
+export '<use_case_name>_uc.dart';
 ```
 
 ### Import

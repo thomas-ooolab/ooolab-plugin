@@ -52,15 +52,17 @@ packages/data/lib/src/
 
 ## Barrel Contents & Imports
 
+Only export symbols consumed outside the folder. Impls are internal — export only when needed for DI registration by the app layer.
+
 ```dart
-// datasource/remote/remote.dart — interfaces only
+// datasource/remote/remote.dart — only interfaces; impls wired by DI, not imported directly
 export 'datasource/datasource.dart';
 
 // datasource/remote/datasource/datasource.dart
 export '<feature>/<feature>.dart';
 
 // datasource/remote/datasource/<feature>/<feature>.dart
-export '<feature>_remote_datasource.dart';  // interface only
+export '<feature>_remote_datasource.dart';  // interface only — impl never exported
 
 // datasource/remote/api/api.dart
 export '<feature>/<feature>.dart';
@@ -72,7 +74,7 @@ export '<feature>_api.dart';
 export '<domain>/<domain>.dart';
 
 // repository/<domain>/<domain>.dart
-export '<domain>_repository_impl.dart';
+export '<domain>_repository_impl.dart';  // exported for DI registration in app layer only
 ```
 
 ```dart

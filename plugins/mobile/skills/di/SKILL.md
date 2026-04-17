@@ -50,7 +50,7 @@ void configureDependencies() => sl.init();
 ```
 
 ```dart
-// lib/core/di/di.dart (barrel)
+// lib/core/di/di.dart (barrel) — only sl and configureDependencies are public API
 export 'injection.dart' show sl, configureDependencies;
 ```
 

@@ -83,21 +83,35 @@ packages/ui_kit/
 └── lib/
     ├── src/
     │   ├── buttons/
+    │   │   ├── buttons.dart          # Barrel — export public button components only
     │   │   ├── app_button.dart
     │   │   └── app_icon_button.dart
     │   ├── cards/
+    │   │   ├── cards.dart            # Barrel
     │   │   └── app_card.dart
     │   ├── inputs/
+    │   │   ├── inputs.dart           # Barrel
     │   │   ├── app_text_field.dart
     │   │   └── app_dropdown.dart
     │   ├── theme/
+    │   │   ├── theme.dart            # Barrel
     │   │   ├── app_colors.dart
     │   │   ├── app_text_styles.dart
     │   │   └── app_theme.dart
     │   └── widgets/
+    │       ├── widgets.dart          # Barrel
     │       ├── app_loading_indicator.dart
     │       └── app_error_view.dart
-    └── ui_kit.dart  // Export all components
+    └── ui_kit.dart                   # Root barrel — re-exports public API only
+```
+
+```dart
+// ui_kit.dart — only export symbols consumers need
+export 'src/buttons/buttons.dart';
+export 'src/cards/cards.dart';
+export 'src/inputs/inputs.dart';
+export 'src/theme/theme.dart';
+export 'src/widgets/widgets.dart';
 ```
 
 ---
