@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Usage: commit.sh <patch|minor|major>
+# Usage: commit.sh <patch|minor|major> <commit message>
 # Auto-detects staged change scope:
 #   - All staged files under plugins/ → bumps plugin.json files
 #   - Any staged file outside plugins/ → bumps marketplace.json files
+# Then runs git commit with the provided message.
 
 BUMP=${1:-patch}
+MSG=${2:-}
+
+if [[ -z "$MSG" ]]; then
+  echo "Usage: commit.sh <patch|minor|major> <commit message>" >&2
+  exit 1
+fi
 
 CLAUDE_JSON="plugins/mobile/.claude-plugin/plugin.json"
 CURSOR_JSON="plugins/mobile/.cursor-plugin/plugin.json"
@@ -60,3 +67,4 @@ for path in ['$CLAUDE_MARKETPLACE', '$CURSOR_MARKETPLACE']:
 fi
 
 echo "$new_version"
+git commit -m "$MSG"
