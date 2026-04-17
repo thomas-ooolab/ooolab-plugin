@@ -20,11 +20,15 @@ Then execute these steps in order:
 git add -A
 ```
 
-**Step 3 — Bump plugin version** by running the script with the bump type you determined:
+**Step 3 — Bump version** by running the script with the bump type you determined:
 ```
 bash .claude/commands/scripts/commit.sh <major|minor|patch>
 ```
-This updates the version in both `plugins/mobile/.claude-plugin/plugin.json` and `plugins/mobile/.cursor-plugin/plugin.json` and stages them. Print the new version to the user.
+The script auto-detects change scope and stages the bumped files:
+- Changes only in `plugins/**` → bumps `plugins/mobile/.claude-plugin/plugin.json` and `plugins/mobile/.cursor-plugin/plugin.json`
+- Any change outside `plugins/**` → bumps `.claude-plugin/marketplace.json` and `.cursor-plugin/marketplace.json`
+
+Print the new version to the user.
 
 **Step 4 — Commit** with the generated message using a HEREDOC.
 
