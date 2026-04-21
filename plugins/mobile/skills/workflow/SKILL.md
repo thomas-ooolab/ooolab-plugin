@@ -244,29 +244,25 @@ fvm dart format --set-exit-if-changed .
 
 ## Tools and Commands
 
-**REMINDER:** All Flutter/Dart commands AND Melos commands require the `fvm` prefix.
+**REMINDER:** Use `fvm` prefix if fvm is installed, otherwise call `dart`/`flutter` directly.
 
 ### Common Commands
 
 ```bash
-# Run melos scripts (defined in melos.yaml)
-fvm dart run melos <script-name>
-
 # Format code
-fvm dart format .
+fvm dart format .   # or: dart format .
 
 # Fix linter issues
-fvm dart fix --apply
+fvm dart fix --apply   # or: dart fix --apply
 
 # Generate translations (REQUIRED after updating translations/ files)
-
-fvm dart run melos generate-translation
+dart run <project-translation-script>
 
 # Generate app icons
-fvm dart run melos generate-app-icon
+dart run <project-icon-script>
 
 # Generate splash screens
-fvm dart run melos generate-splash-screen
+dart run <project-splash-script>
 ```
 
 ### Package Management

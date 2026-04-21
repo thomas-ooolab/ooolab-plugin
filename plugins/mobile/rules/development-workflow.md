@@ -37,7 +37,7 @@ This repository is **indexed by GitNexus**. For anything that depends on underst
 Follow the project's development workflow (see `${CLAUDE_PLUGIN_ROOT}/skills/workflow/SKILL.md`). Summary:
 
 - **FVM required**: Prefix all Flutter/Dart commands with `fvm` (e.g. `fvm flutter run`, `fvm dart run build_runner build -d`).
-- **Quality**: Format with `fvm dart run melos dart-format` (or `fvm dart format .`), run `fvm dart analyze`, use localization for user-visible strings, follow Clean Architecture.
+- **Quality**: Format with `fvm dart format .` (or `dart format .` if fvm is not installed), run `fvm dart analyze` (or `dart analyze`), use localization for user-visible strings, follow Clean Architecture.
 
 When a task matches one of the following, **delegate to the corresponding subagent**. Use [explicit invocation](https://cursor.com/docs/context/subagents#explicit-invocation): **`/name`** in the prompt (e.g. `/data-implementor add the new endpoint`) or natural mention (e.g. “Use the presentation-implementor subagent to implement this screen”).
 

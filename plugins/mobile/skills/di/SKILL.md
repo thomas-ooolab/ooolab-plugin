@@ -157,11 +157,6 @@ cd domain && fvm dart run build_runner build --delete-conflicting-outputs
 fvm dart run build_runner build --delete-conflicting-outputs
 ```
 
-Or via melos:
-```bash
-fvm dart run melos run build_runner
-```
-
 ### 4. Initialize in main
 
 ```dart

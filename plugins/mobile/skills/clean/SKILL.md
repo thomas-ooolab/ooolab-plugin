@@ -121,11 +121,11 @@ Response flows back: API → DataSource → Repository → Cubit → UI
 @
 ## Tools & Commands
 
-> This project uses FVM. Always prefix Flutter/Dart commands with `fvm`.
+> Use `fvm` prefix if fvm is installed, otherwise call `dart`/`flutter` directly.
 
-- **Code generation**: `fvm dart run build_runner build -d`
+- **Code generation**: `fvm dart run build_runner build -d` (or `dart run build_runner build -d`)
 - **Tests**: `fvm flutter test --coverage --branch-coverage --fail-fast -r failures-only --test-randomize-ordering-seed random`
-- **Translations**: `fvm dart run melos generate-translation`
+- **Translations**: run the project's translation generation script directly
 - **Run app**: `fvm flutter run --flavor development`
 
 ## References

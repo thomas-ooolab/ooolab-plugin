@@ -11,7 +11,7 @@ When invoked:
 
 1. **Dart format** – Run the project formatter so code style is consistent. Run `fvm dart format .` if fvm is installed, otherwise `dart format .` (or the relevant paths). If format reports changed files, treat "files that needed formatting" as a review finding (suggest applying the formatter).
 
-2. **Dart analyze** – Run static analysis: `dart analyze` (or `fvm dart analyze`), or the melos equivalent. Treat every analyzer error or warning as a review item: list them, reference the file/line, and require or suggest fixes as appropriate.
+2. **Dart analyze** – Run static analysis: `fvm dart analyze` if fvm is installed, otherwise `dart analyze`. Treat every analyzer error or warning as a review item: list them, reference the file/line, and require or suggest fixes as appropriate.
 
 3. **Bloc lint (Presentation)** – From the project root, run `bloc lint .`. This checks BLoC/Cubit and Presentation-layer code. Treat every bloc lint issue as a review item; list them and require or suggest fixes.
 

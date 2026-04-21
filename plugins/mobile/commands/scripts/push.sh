@@ -53,7 +53,7 @@ check_git_repo() {
     fi
 }
 
-# Step 1: Format code using melos. On failure, exit immediately (no commit/push).
+# Step 1: Format code. On failure, exit immediately (no commit/push).
 should_format_code() {
     cd "${ROOT_DIR}" || die "Failed to change to root directory"
 
@@ -88,10 +88,17 @@ should_format_code() {
 }
 
 format_code() {
-    info "Formatting code with melos..."
+    info "Formatting code..."
     cd "${ROOT_DIR}" || die "Failed to change to root directory"
 
-    if ! fvm dart run melos dart-format; then
+    local dart_cmd
+    if command -v fvm &>/dev/null; then
+        dart_cmd="fvm dart"
+    else
+        dart_cmd="dart"
+    fi
+
+    if ! ${dart_cmd} format .; then
         die "Code formatting failed. Fix the reported issues, then rerun the push command."
     fi
 
@@ -217,7 +224,7 @@ main() {
     if should_format_code; then
         format_code || exit 1
     else
-        info "Skipping melos dart-format (changes are outside lib/, test/, packages/**/lib/, packages/**/test/)"
+        info "Skipping dart format (changes are outside lib/, test/, packages/**/lib/, packages/**/test/)"
     fi
 
     local commit_message

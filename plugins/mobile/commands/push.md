@@ -5,7 +5,7 @@ description: Format, stage, commit with conventional message, and push to origin
 
 # Commit
 
-Run the project's commit workflow: format with melos, then stage, commit, and push with the given message.
+Run the project's commit workflow: format, stage, commit, and push with the given message.
 
 **Execute the script:**
 
@@ -47,7 +47,7 @@ If `release-notes.txt` exists and contains a ticket ID (e.g. `LOE-6144`), the co
 
 **Steps performed by the script:**
 
-1. If the diff only touches `test/`, `**/`, and `**/test/`, format code with `fvm dart run melos dart-format` (format, analyze, bloc lint). **If this step fails, the script exits immediately** and does not stage, commit, or push. Fix the reported issues (format, analyzer, or bloc_lint), then run the push command again.
+1. If the diff only touches `test/`, `**/`, and `**/test/`, format code with `fvm dart format .` (or `dart format .` if fvm is not installed). **If this step fails, the script exits immediately** and does not stage, commit, or push. Fix the reported issues, then run the push command again.
 2. Read commit message from `COMMIT_MESSAGE` or `-m`/`--message`
 3. Stage all changes, commit, and push (set upstream if needed)
 
