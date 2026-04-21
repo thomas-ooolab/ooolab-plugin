@@ -43,9 +43,9 @@ When a task matches one of the following, **delegate to the corresponding subage
 
 | Task | Invoke with | When to use |
 |------|-------------|-------------|
-| **Data layer (remote + local)** | `/data-implementor` | New or changed endpoints, API contracts, Retrofit APIs, request/response models, local persistence (Hive/SharedPreferences/SecureStorage), or any work in `packages/data`. (`${CLAUDE_PLUGIN_ROOT}/agents/data-implementor.md`) |
-| **Domain layer (repositories + use cases)** | `/domain-implementor` | New or changed repository interfaces/impls in `packages/domain`, use cases in `lib/use_case`, domain exceptions, or business-logic orchestration across data sources. (`${CLAUDE_PLUGIN_ROOT}/agents/domain-implementor.md`) |
-| **Presentation layer** | `/presentation-implementor` | Adding or changing screens, cubits, routes, or views in `lib/screens/`, `lib/widgets/`, or `lib/components/`. (`${CLAUDE_PLUGIN_ROOT}/agents/presentation-implementor.md`) |
+| **Data layer (remote + local)** | `/data-implementor` | New or changed endpoints, API contracts, Retrofit APIs, request/response models, local persistence (Hive/SharedPreferences/SecureStorage), or any work in `data`. (`${CLAUDE_PLUGIN_ROOT}/agents/data-implementor.md`) |
+| **Domain layer (repositories + use cases)** | `/domain-implementor` | New or changed repository interfaces/impls in `domain`, use cases in `use_case`, domain exceptions, or business-logic orchestration across data sources. (`${CLAUDE_PLUGIN_ROOT}/agents/domain-implementor.md`) |
+| **Presentation layer** | `/presentation-implementor` | Adding or changing screens, cubits, routes, or views in `screens/`, `widgets/`, or `components/`. (`${CLAUDE_PLUGIN_ROOT}/agents/presentation-implementor.md`) |
 | **Tests** | `/test-writer` | **MANDATORY** after finishing code changes: add or update unit, widget, or integration tests for the changes. (`${CLAUDE_PLUGIN_ROOT}/agents/test-writer.md`) |
 | **Code review** | `/code-reviewer` | **MANDATORY** after finishing development (including unit tests): run format, analyze, bloc lint, and review all changed code. (`${CLAUDE_PLUGIN_ROOT}/agents/code-reviewer.md`) |
 

@@ -92,10 +92,10 @@ class FeatureCubit extends Cubit<FeatureState> {
 
 ### Shared Status Enum — DataLoadStatus
 
-Use `DataLoadStatus` from `lib/core/state-management/` for all feature states. Never define feature-specific status enums.
+Use `DataLoadStatus` from `core/state-management/` for all feature states. Never define feature-specific status enums.
 
 ```dart
-// lib/core/state-management/data_load_status.dart
+// core/state-management/data_load_status.dart
 
 /// The status that's used for general state when calling api in bloc
 enum DataLoadStatus {
@@ -108,7 +108,7 @@ enum DataLoadStatus {
 ```
 
 ```dart
-// lib/core/state-management/state_management.dart  (barrel)
+// core/state-management/state_management.dart  (barrel)
 export 'data_load_status.dart';
 ```
 
@@ -153,7 +153,7 @@ switch (state.status) {
 
 **Rules:**
 - `@freezed` single class — generates `copyWith`, equality, `toString`
-- Use `DataLoadStatus` from `lib/core/state-management/` — never define feature-specific status enums
+- Use `DataLoadStatus` from `core/state-management/` — never define feature-specific status enums
 - `refreshing` = background reload while showing stale data; `loading` = initial/blocking load
 - `@Default(...)` on all fields — enables `const FeatureState()` as initial state
 - Use `state.copyWith(status: DataLoadStatus.loading)` — never emit a fresh state that discards existing data

@@ -76,7 +76,7 @@ switch (state.status) {
 Use `FormStatus` for form submission state — separate from `DataLoadStatus` (which is for data loading).
 
 ```dart
-// lib/core/state_management/form_status.dart
+// core/state_management/form_status.dart
 enum FormStatus { initial, submitting, success, failure }
 ```
 

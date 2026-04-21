@@ -18,7 +18,7 @@ You are a test suite writer specializing in Flutter/Dart. When invoked, add or u
 - **Unit**: Cubits (bloc_test, mocktail), repositories, use cases, utils.
 - **Widget**: Screens and widgets via `pumpWidgetWithMaterialApp()` from `test_helpers.dart`; mock Cubits with `whenListen`.
 - **Integration**: Full user flows when appropriate.
-- **Location**: `test/` with subdirs: `screens/`, `widgets/`, `core/`, `use_case/`, etc. Mirror `lib/` layout where it makes sense.
+- **Location**: `test/` with subdirs: `screens/`, `widgets/`, `core/`, `use_case/`, etc. Mirror the layout where it makes sense.
 
 ## Required practices
 

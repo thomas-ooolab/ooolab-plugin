@@ -1,6 +1,6 @@
 ---
 name: data
-description: "Data package guidelines for Retrofit API, remote/local data sources, models, and DI in packages/data. Use when adding or modifying API endpoints, data sources, data models, or implementing the data layer."
+description: "Data package guidelines for Retrofit API, remote/local data sources, models, and DI in data. Use when adding or modifying API endpoints, data sources, data models, or implementing the data layer."
 ---
 
 ## Related Guidelines
@@ -12,7 +12,7 @@ description: "Data package guidelines for Retrofit API, remote/local data source
 ## Folder Structure
 
 ```
-packages/data/lib/src/
+data/src/
 ├── di/
 │   ├── di.dart                          # Barrel
 │   ├── data_injection.dart              # @InjectableInit.microPackage()
@@ -86,7 +86,7 @@ import 'package:data/src/datasource/remote/remote.dart';
 import 'package:data/src/repository/repository.dart';
 ```
 
-## API Layer (`lib/src/datasource/remote/api/<feature>/`)
+## API Layer (`src/datasource/remote/api/<feature>/`)
 
 - Barrel: `<feature>.dart` — export `<feature>_api.dart`
 - One Retrofit API per feature: `<feature>_api.dart`
@@ -110,7 +110,7 @@ abstract interface class FeatureApi {
 }
 ```
 
-## Remote Data Source Layer (`lib/src/datasource/remote/datasource/<feature>/`)
+## Remote Data Source Layer (`src/datasource/remote/datasource/<feature>/`)
 
 **Interface** — return entity/domain types only; no Dio/Retrofit types:
 
@@ -147,7 +147,7 @@ final class FeatureRemoteDataSourceImpl implements FeatureRemoteDataSource {
 - All errors → `DataSourceException.from(e)`
 - Map response to entity/model — no raw JSON upward
 
-## Local Data Source Layer (`lib/src/datasource/local/datasource/<feature>/`)
+## Local Data Source Layer (`src/datasource/local/datasource/<feature>/`)
 
 **Interface:**
 
@@ -192,7 +192,7 @@ final class FeatureLocalDataSourceImpl implements FeatureLocalDataSource {
 - Handle serialization/deserialization inside impl
 - Throw `Exception` on storage failure — never swallow
 
-## Models (`lib/src/datasource/remote/datasource/<feature>/model/`)
+## Models (`src/datasource/remote/datasource/<feature>/model/`)
 
 Request/response DTOs:
 
@@ -216,9 +216,9 @@ class FeatureModel {
 - `fromJson` for responses, `toJson()` for requests
 - Keep in data package — domain entities stay in `entity`
 
-## Repository Layer (`lib/src/repository/<domain>/`)
+## Repository Layer (`src/repository/<domain>/`)
 
-Repository interfaces are defined in `packages/domain` — only implementations live here.
+Repository interfaces are defined in `domain` — only implementations live here.
 
 - `@Injectable(as: <Domain>Repository)` on `final class <Domain>RepositoryImpl`
 - Inject only data source interfaces (remote/local) via named constructor params
@@ -267,7 +267,7 @@ final class AuthenticationRepositoryImpl implements AuthenticationRepository {
 
 Data package uses `@InjectableInit.microPackage()` — all `@Injectable`/`@injectable`/`@module` annotations auto-discovered.
 
-## Network (`lib/src/remote/network/`)
+## Network (`src/remote/network/`)
 
 - Shared Dio instance lives here
 - Interceptors (auth token, retry, logging) added here — not in individual APIs

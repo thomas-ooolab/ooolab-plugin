@@ -276,7 +276,7 @@ fvm dart run melos generate-splash-screen
 fvm flutter pub add package_name
 
 # Add dependency to specific package
-cd packages/package_name
+cd package_name
 fvm flutter pub add dependency_name
 
 # Update all dependencies

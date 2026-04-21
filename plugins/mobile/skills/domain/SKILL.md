@@ -1,6 +1,6 @@
 ---
 name: domain
-description: "Domain layer patterns for repository interfaces, use cases, domain exceptions, and DI wiring in packages/domain and lib/use_case. Use when adding repositories, use cases, or modifying business logic."
+description: "Domain layer patterns for repository interfaces, use cases, domain exceptions, and DI wiring in domain and use_case. Use when adding repositories, use cases, or modifying business logic."
 ---
 
 ## Related Guidelines
@@ -20,14 +20,14 @@ use_case   → domain, entity
 screens    → domain, use_case, entity
 ```
 
-Reject upward dependencies (e.g. domain importing `lib/screens`).
+Reject upward dependencies (e.g. domain importing `screens`).
 
-## Repository Layer (`packages/domain/lib/src/<domain>/`)
+## Repository Layer (`domain/src/<domain>/`)
 
 ### Folder Structure
 
 ```
-packages/domain/lib/src/<domain>/
+domain/src/<domain>/
 ├── <domain>.dart                     # Barrel — exports interface + exceptions
 ├── <domain>_repository.dart          # abstract interface only
 └── exception/
@@ -35,7 +35,7 @@ packages/domain/lib/src/<domain>/
     └── <domain>_exception.dart       # domain exceptions
 ```
 
-> Implementation lives in `packages/data/lib/src/repository/` — see `@data`.
+> Implementation lives in `data/src/repository/` — see `@data`.
 
 ### Barrel Contents
 
@@ -71,12 +71,12 @@ abstract interface class AuthenticationRepository {
 }
 ```
 
-## Use Case Layer (`lib/use_case/<domain>/<feature>/`)
+## Use Case Layer (`use_case/<domain>/<feature>/`)
 
 ### Folder Structure
 
 ```
-lib/use_case/<domain>/
+use_case/<domain>/
 ├── <domain>.dart                  # Barrel — exports all feature barrels
 └── <feature>/
     ├── <use_case_name>_uc.dart        # abstract interface
@@ -147,7 +147,7 @@ final class DetermineAccountUseCaseImpl implements DetermineAccountUseCase {
 }
 ```
 
-## Domain Exceptions (`packages/domain/lib/src/<domain>/exception/`)
+## Domain Exceptions (`domain/src/<domain>/exception/`)
 
 - One exception class per failure mode
 - Extend base `Exception` or shared base class
@@ -159,12 +159,12 @@ final class DetermineAccountUseCaseImpl implements DetermineAccountUseCase {
 - `@Injectable(as: Interface)` on every implementation — build_runner generates registrations
 - External bindings → `<domain>_module.dart` with `@module abstract class`
 - Export repository **interfaces** (not impls) from domain package barrel
-- Export use case **interfaces** from `lib/use_case/<domain>/<feature>/<feature>.dart`
+- Export use case **interfaces** from `use_case/<domain>/<feature>/<feature>.dart`
 - Run `fvm dart run build_runner build --delete-conflicting-outputs` after annotation changes
 
 ## NEVER
 
-- Import `packages/data` implementations, Retrofit types, or `DioException` in domain/use case code
+- Import `data` implementations, Retrofit types, or `DioException` in domain/use case code
 - Put UI logic, `BuildContext`, or Flutter widgets in domain layer
 - Call data sources or APIs directly from use cases — always through a repository
 - Expose internal models or DTOs — return entity types or primitives

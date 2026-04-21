@@ -9,9 +9,9 @@
 
 ---
 
-## 1. Presentation Layer (`lib/`)
+## 1. Presentation Layer
 
-**Location**: `lib/screens/`, `lib/widgets/`, `lib/components/`
+**Location**: `screens/`, `widgets/`, `components/`
 
 Display data, handle user interactions, manage UI state via BLoC/Cubit. No business logic, no direct repo calls.
 
@@ -19,7 +19,7 @@ Display data, handle user interactions, manage UI state via BLoC/Cubit. No busin
 
 ---
 
-## 2. Domain Layer — Use Cases (`lib/use_case/`)
+## 2. Domain Layer — Use Cases (`use_case/`)
 
 Single-responsibility business operations. Coordinate repositories, no UI deps, no direct API/service calls.
 
@@ -27,13 +27,13 @@ Single-responsibility business operations. Coordinate repositories, no UI deps, 
 
 ---
 
-## 3. Domain Layer — Entities (`packages/entity/`)
+## 3. Domain Layer — Entities (`entity/`)
 
 Pure Dart domain models. Immutable, no layer dependencies, use `@JsonSerializable()` for serialization.
 
 **Structure:**
 ```
-packages/entity/lib/src/[domain]/
+entity/src/[domain]/
 ├── entity.dart          # Barrel file
 ├── [entity_name].dart   # Domain entity
 ├── [enum_name].dart     # Domain enums
@@ -48,7 +48,7 @@ packages/entity/lib/src/[domain]/
 
 ---
 
-## 4. Data Layer — Repositories (`packages/domain/`)
+## 4. Data Layer — Repositories (`domain/`)
 
 Abstract data access. Coordinate remote + local sources, translate `DataSourceException` to domain exceptions, map models to entities. No business logic.
 
@@ -56,7 +56,7 @@ Abstract data access. Coordinate remote + local sources, translate `DataSourceEx
 
 ---
 
-## 5. Data Layer — Data Package (`packages/data/`)
+## 5. Data Layer — Data Package (`data/`)
 
 Remote (Retrofit API) and local (Hive/SharedPreferences/SecureStorage) data sources. Convert HTTP errors to `DataSourceException`. No business logic, no entity exposure — use models.
 

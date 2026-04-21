@@ -1,6 +1,6 @@
 ---
 name: presentation
-description: "Presentation layer structure for screens, cubits, routes, and views in lib/screens/. Use when adding or modifying Flutter screens, cubits, routes, barrel files, or feature presentation code."
+description: "Presentation layer structure for screens, cubits, routes, and views in screens/. Use when adding or modifying Flutter screens, cubits, routes, barrel files, or feature presentation code."
 ---
 
 ## Related Guidelines
@@ -20,7 +20,7 @@ description: "Presentation layer structure for screens, cubits, routes, and view
 All features follow a consistent directory structure with barrel files for clean imports:
 
 ```
-lib/screens/[feature_name]/
+screens/[feature_name]/
 ├── [feature_name].dart           # Barrel file - exports all public APIs
 ├── cubit/                        # State management (see @state)
 │   ├── cubit.dart                # Barrel — exports cubits and states
@@ -46,7 +46,7 @@ lib/screens/[feature_name]/
 Complex features may contain sub-features, each following the same structure:
 
 ```
-lib/screens/[feature_name]/
+screens/[feature_name]/
 ├── [feature_name].dart           # Exports sub-features and main feature
 ├── [sub_feature_1]/              # Sub-feature follows same structure
 │   ├── [sub_feature_1].dart      # Barrel file
@@ -69,7 +69,7 @@ lib/screens/[feature_name]/
 
 **Example: Billing Feature**
 ```
-lib/screens/billing/
+screens/billing/
 ├── billing.dart                  # export 'billing_detail/billing_detail.dart';
 ├── billing_detail/               # Sub-feature
 │   ├── billing_detail.dart       # export 'model/model.dart' show BillingDetailData;
@@ -99,7 +99,7 @@ lib/screens/billing/
 Features may have multiple Cubits for different concerns:
 
 ```
-lib/screens/[feature_name]/
+screens/[feature_name]/
 ├── cubit/
 │   ├── cubit.dart                    # Barrel — exports all cubits and states
 │   ├── [feature]_cubit.dart          # Main feature logic
@@ -113,7 +113,7 @@ lib/screens/[feature_name]/
 
 **Example: Account Detail with Multiple Cubits**
 ```
-lib/screens/account_detail/
+screens/account_detail/
 ├── cubit/
 │   ├── cubit.dart                    # Barrel — exports all cubits and states
 │   ├── account_detail_cubit.dart     # Main account data
@@ -132,7 +132,7 @@ lib/screens/account_detail/
   - Typically integrates with BLoC/Cubit
 
 ```
-lib/screens/assignments/
+screens/assignments/
 └── view/
     ├── view.dart
     ├── assignments_tab.dart          # Main screen
@@ -150,27 +150,27 @@ lib/screens/assignments/
 - **DON'T** export internal implementation details (forms, helpers, sub-components used only within the folder)
 
 ```dart
-// GOOD - lib/screens/billing/cubit/cubit.dart
+// GOOD - screens/billing/cubit/cubit.dart
 // State is read by view/ outside this folder — export both
 export 'billing_cubit.dart';
 export 'billing_state.dart';
 
-// GOOD - lib/screens/billing/view/view.dart
+// GOOD - screens/billing/view/view.dart
 // Screen used by route — export it; invoice_item used by parent feature — export it
 export 'billing_screen.dart';
 export 'invoice_item.dart';
 
-// BAD - lib/screens/login/view/view.dart
+// BAD - screens/login/view/view.dart
 export 'login_screen.dart';
 export 'login_form.dart';               // only used inside login_screen — do not export
 export 'login_header.dart';             // only used inside login_screen — do not export
 
-// GOOD - lib/screens/billing/model/model.dart
+// GOOD - screens/billing/model/model.dart
 // Only export models referenced outside this folder
 export 'billing_detail_data.dart';
 // invoice_status_helper.dart used only inside model/ — not exported
 
-// GOOD - lib/screens/billing/billing_detail/billing_detail.dart
+// GOOD - screens/billing/billing_detail/billing_detail.dart
 export 'model/model.dart' show BillingDetailData;  // only the type needed by callers
 
 // BAD - No barrel file
@@ -184,10 +184,10 @@ export 'model/model.dart' show BillingDetailData;  // only the type needed by ca
 
 #### Route Configuration
 
-Routes use `AppPageRoute` from `lib/components/route/`:
+Routes use `AppPageRoute` from `components/route/`:
 
 ```dart
-// lib/screens/[feature]/[feature]_route.dart
+// screens/[feature]/[feature]_route.dart
 import 'package:app/components/route/app_page_route.dart';
 
 class FeatureRoute extends AppPageRoute<FeatureData, FeatureResult> {
@@ -207,7 +207,7 @@ class FeatureRoute extends AppPageRoute<FeatureData, FeatureResult> {
 
 **Simple Feature (Login)**
 ```
-lib/screens/login/
+screens/login/
 ├── login.dart                    # Barrel: exports all public APIs
 ├── cubit/
 │   ├── login_cubit.dart
@@ -229,7 +229,7 @@ lib/screens/login/
 
 **Complex Feature (Home with Tabs)**
 ```
-lib/screens/home/
+screens/home/
 ├── home.dart                     # Barrel: exports tabs
 ├── cubit/
 │   ├── home_cubit.dart
@@ -281,7 +281,7 @@ lib/screens/home/
 - State: `@freezed sealed class` with union factories (`initial`, `loading`, `success`, `error`)
 - Inject only repositories and use cases via constructor
 - No business logic in widgets; no direct repo calls from UI
-- Use `FormStatus` for forms; `DataLoadStatus` from `lib/core/state-management/` for data loading
+- Use `FormStatus` for forms; `DataLoadStatus` from `core/state-management/` for data loading
 
 ```dart
 // feature_state.dart
@@ -322,7 +322,7 @@ class FeatureCubit extends Cubit<FeatureState> with CubitMixin<FeatureState> {
 - Prefer `StatelessWidget`; `StatefulWidget` only for local UI state
 - Widget classes for UI components — not build methods (see `@flutter`)
 - `BlocProvider` to create cubit; `BlocBuilder`/`BlocListener` to react to state
-- Design system from `packages/vle_ui` (VleColors, VleDimens, VleTextStyles, VleButton, etc.)
+- Design system from `vle_ui` (VleColors, VleDimens, VleTextStyles, VleButton, etc.)
 - Use `LocalizationKeys.*.tr()` for all user-visible strings
 - `const` constructors everywhere; files under ~200 lines
 

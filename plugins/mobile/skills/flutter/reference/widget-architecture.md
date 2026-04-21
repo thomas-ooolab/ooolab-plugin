@@ -17,13 +17,13 @@ Keep every Dart widget file under 200 lines. If a file exceeds 200 lines, split 
 
 ```
 // BAD — one file with everything
-lib/screens/product/product_screen.dart  (450 lines)
+screens/product/product_screen.dart  (450 lines)
 
 // GOOD — split by responsibility
-lib/screens/product/product_screen.dart       (main screen, ~60 lines)
-lib/screens/product/product_header.dart       (header widget, ~80 lines)
-lib/screens/product/product_details.dart      (details section, ~90 lines)
-lib/screens/product/product_action_bar.dart   (bottom actions, ~50 lines)
+screens/product/product_screen.dart       (main screen, ~60 lines)
+screens/product/product_header.dart       (header widget, ~80 lines)
+screens/product/product_details.dart      (details section, ~90 lines)
+screens/product/product_action_bar.dart   (bottom actions, ~50 lines)
 ```
 
 Rules for splitting:

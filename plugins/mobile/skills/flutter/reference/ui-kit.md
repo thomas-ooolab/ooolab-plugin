@@ -12,7 +12,7 @@
 
 - **DO** create reusable, themed components in a dedicated UI kit package.
 ```dart
-// packages/ui_kit/lib/src/buttons/app_button.dart
+// ui_kit/src/buttons/app_button.dart
 class AppButton extends StatelessWidget {
   const AppButton({
     required this.text,
@@ -79,9 +79,8 @@ enum AppButtonSize { small, medium, large }
 ## UI Kit Package Structure
 
 ```
-packages/ui_kit/
-└── lib/
-    ├── src/
+ui_kit/
+├── src/
     │   ├── buttons/
     │   │   ├── buttons.dart          # Barrel — export public button components only
     │   │   ├── app_button.dart
@@ -120,7 +119,7 @@ export 'src/widgets/widgets.dart';
 
 - **DO** provide consistent theming across all UI kit components.
 ```dart
-// packages/ui_kit/lib/src/theme/app_theme.dart
+// ui_kit/src/theme/app_theme.dart
 class AppTheme {
   static ThemeData light() {
     return ThemeData(

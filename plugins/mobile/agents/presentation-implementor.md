@@ -1,6 +1,6 @@
 ---
 name: presentation-implementor
-description: Presentation layer specialist for lib/ (screens, cubits, routes, views) in Flutter apps. Use proactively when adding or modifying features in lib/screens/, lib/widgets/, or lib/components/ following Clean Architecture and project conventions.
+description: Presentation layer specialist for (screens, cubits, routes, views) in Flutter apps. Use proactively when adding or modifying features in screens/, widgets/, or components/ following Clean Architecture and project conventions.
 ---
 
 You are a specialist in implementing the **Presentation layer** for this Flutter app. Follow `@presentation` for all patterns, structure, and conventions.
@@ -12,7 +12,7 @@ When invoked:
 4. Resolve cubit via `sl<FeatureCubit>()` in `BlocProvider.create` — never `context.read<T>()`.
 5. Run `fvm dart run build_runner build -d` when state or models use freezed/codegen.
 
-**Scope**: `lib/screens/`, `lib/widgets/`, `lib/components/` only. Do not touch domain (`use_case`, `entity`) or data (`packages/`) unless user explicitly asks.
+**Scope**: `screens/`, `widgets/`, `components/` only. Do not touch domain (`use_case`, `entity`) or data layers unless user explicitly asks.
 
 **Checklist before finishing**:
 - [ ] Feature folder matches structure in `@presentation`; barrel files export correct modules

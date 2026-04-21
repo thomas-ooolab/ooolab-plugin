@@ -21,17 +21,17 @@ This project follows **Clean Architecture** with a modular monorepo. Layers have
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    Presentation Layer                       │
-│  lib/screens/, lib/widgets/, lib/components/                │
+│  screens/, widgets/, components/                            │
 └─────────────────────────────────────────────────────────────┘
                             ↓ depends on
 ┌─────────────────────────────────────────────────────────────┐
 │                      Domain Layer                           │
-│  lib/use_case/, packages/entity/                            │
+│  use_case/, entity/                                         │
 └─────────────────────────────────────────────────────────────┘
                             ↓ depends on
 ┌─────────────────────────────────────────────────────────────┐
 │                       Data Layer                            │
-│  packages/domain/, packages/data/                           │
+│  domain/, data/                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -81,8 +81,8 @@ Response flows back: API → DataSource → Repository → Cubit → UI
 - `entity` — no dependencies
 - `data` — depends on `entity`
 - `domain` — depends on `entity`, `data`
-- `lib/use_case` — depends on `domain`
-- `lib/screens` — depends on `domain`, `use_case`, `entity`
+- `use_case` — depends on `domain`
+- `screens` — depends on `domain`, `use_case`, `entity`
 
 ## Error Handling
 
@@ -93,18 +93,17 @@ Response flows back: API → DataSource → Repository → Cubit → UI
 
 ## Creating New Feature (Checklist)
 
-1. Define entity in `packages/entity/`
-2. Create remote data source in `packages/data/src/remote/datasource/`
-3. Create local data source in `packages/data/src/local/datasource/` (if persistence needed)
-4. Create repository in `packages/domain/lib/src/<domain>/`
-5. Create use case in `lib/use_case/` (if orchestration needed)
-6. Create screen + cubit in `lib/screens/`
+1. Define entity in `entity/`
+2. Create remote data source in `data/src/remote/datasource/`
+3. Create local data source in `data/src/local/datasource/` (if persistence needed)
+4. Create repository in `domain/src/<domain>/`
+5. Create use case in `use_case/` (if orchestration needed)
+6. Create screen + cubit in `screens/`
 7. Register dependencies in package DI modules
 
 ## Package Structure
 
 ```
-packages/
 ├── entity/       # Domain entities (no deps)
 ├── data/         # Remote + local data sources
 ├── domain/       # Repository interfaces & impls
@@ -114,11 +113,11 @@ packages/
 
 ## Key Files
 
-- `lib/core/di/di.dart` — DI configuration
-- `lib/app.dart` — App initialization
-- `lib/core/state_management/` — State management utilities (`DataLoadStatus`)
-- `packages/data/lib/src/remote/network/` — Network config
-- `packages/entity/` — All domain models
+- `core/di/di.dart` — DI configuration
+- `app.dart` — App initialization
+- `core/state_management/` — State management utilities (`DataLoadStatus`)
+- `data/src/remote/network/` — Network config
+- `entity/` — All domain models
 @
 ## Tools & Commands
 
