@@ -10,6 +10,12 @@
 
 The project provides a comprehensive testing infrastructure in `test/test_helpers/test_helpers.dart`.
 
+Always import with the absolute package path — never relative `../`:
+
+```dart
+import 'package:app/test_helpers/test_helpers.dart';
+```
+
 Use `pumpWidgetWithMaterialApp()` for all widget tests to ensure consistent test environment:
 
 ```dart

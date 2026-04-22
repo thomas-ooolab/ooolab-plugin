@@ -10,7 +10,7 @@
 ## Screen Testing with Cubit
 
 ```dart
-import '../../../test_helpers/test_helpers.dart';
+import 'package:app/test_helpers/test_helpers.dart';
 
 // Define private mock cubits in the test file
 class _MockFeatureCubit extends MockCubit<FeatureState>
