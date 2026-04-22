@@ -10,13 +10,13 @@ Run the project's commit workflow: format, stage, commit, and push with the give
 **Execute the script:**
 
 ```bash
-${CLAUDE_PLUGIN_ROOT}/commands/scripts/push.sh
+scripts/push.sh
 ```
 
 The script requires a commit message. Pass it via:
 
-- **Environment variable:** `COMMIT_MESSAGE="Your message" ${CLAUDE_PLUGIN_ROOT}/commands/scripts/push.sh`
-- **CLI argument:** `${CLAUDE_PLUGIN_ROOT}/commands/scripts/push.sh -m "Your message"` or `${CLAUDE_PLUGIN_ROOT}/commands/scripts/push.sh --message "Your message"`
+- **Environment variable:** `COMMIT_MESSAGE="Your message" scripts/push.sh`
+- **CLI argument:** `scripts/push.sh -m "Your message"` or `scripts/push.sh --message "Your message"`
 
 **Commit message format:**
 
@@ -59,11 +59,11 @@ When the user runs `/commit`:
 4. Run:
 
 ```bash
-COMMIT_MESSAGE="<generated message>" ${CLAUDE_PLUGIN_ROOT}/commands/scripts/push.sh
+COMMIT_MESSAGE="<generated message>" scripts/push.sh
 ```
 
 or
 
 ```bash
-${CLAUDE_PLUGIN_ROOT}/commands/scripts/push.sh -m "<generated message>"
+scripts/push.sh -m "<generated message>"
 ```
