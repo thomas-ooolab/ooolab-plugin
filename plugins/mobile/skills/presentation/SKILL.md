@@ -354,6 +354,12 @@ class FeatureRoute extends AppPageRoute<FeatureData, FeatureResult> {
 }
 ```
 
+### Pagination
+
+Use `PaginationCubitMixin` from `components/pagination/` for paginated lists. Mix with `CubitMixin<State>` and override `getPageData()` and `onException()`. Wrap views with `PullDownRefreshWidget` for pull-to-refresh.
+
+See [`reference/pagination.md`](reference/pagination.md) for complete cubit pattern, state, view components, and sliver variants.
+
 ### Dependency Injection
 
 - Resolve cubit via `sl<FeatureCubit>()` inside `BlocProvider.create`
