@@ -137,7 +137,7 @@ class FeatureState with _$FeatureState {
 }
 ```
 
-Run `build_runner` after creating/editing state:
+Run `build_runner` after creating/editing state (use `fvm dart run ...` if `.fvmrc` exists and `fvm` is available, otherwise `dart run ...`):
 ```bash
 fvm dart run build_runner build --delete-conflicting-outputs
 ```

@@ -121,7 +121,7 @@ Response flows back: API → DataSource → Repository → Cubit → UI
 @
 ## Tools & Commands
 
-> Use `fvm` prefix if fvm is installed, otherwise call `dart`/`flutter` directly.
+> Use `fvm` prefix only if `.fvmrc` exists in the project root AND `fvm` command is available; otherwise call `dart`/`flutter` directly.
 
 - **Code generation**: `fvm dart run build_runner build -d` (or `dart run build_runner build -d`)
 - **Tests**: `fvm flutter test --coverage --branch-coverage --fail-fast -r failures-only --test-randomize-ordering-seed random`

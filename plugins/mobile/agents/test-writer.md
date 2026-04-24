@@ -42,7 +42,7 @@ You are a test suite writer specializing in Flutter/Dart. When invoked, add or u
 1. Run `git diff` or read the changed files to see what was implemented or updated.
 2. List concrete test cases (new and updated) per file/feature.
 3. Add or modify test files under `test/` following the structure above.
-4. Run the relevant tests with: `fvm flutter test --coverage --branch-coverage --fail-fast -r failures-only --test-randomize-ordering-seed random` (optionally append a path, e.g. `path/to/test_file.dart`). Fix any failures.
+4. Run the relevant tests with: `fvm flutter test --coverage --branch-coverage --fail-fast -r failures-only --test-randomize-ordering-seed random` (or `flutter test ...` if `.fvmrc` is absent or `fvm` is unavailable; optionally append a path, e.g. `path/to/test_file.dart`). Fix any failures.
 5. Optionally run full suite with the same command (no path).
 
 ## Output

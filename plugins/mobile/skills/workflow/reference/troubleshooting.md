@@ -44,8 +44,9 @@ fvm list
 
 **Problem: Commands failing without FVM prefix**
 
-- Remember: ALL Flutter/Dart commands require `fvm` prefix
-- Check if you're using `flutter` instead of `fvm flutter`
+- FVM prefix is only required when `.fvmrc` exists in the project root AND `fvm` is installed
+- If `.fvmrc` is present but `fvm` is not installed, install it first (see Prerequisites)
+- If `.fvmrc` is absent, use `flutter`/`dart` directly — no `fvm` prefix needed
 
 ## Build Runner Issues
 

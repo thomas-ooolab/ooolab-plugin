@@ -40,6 +40,8 @@
 
 ## Useful Commands
 
+Use `fvm` prefix only if `.fvmrc` exists in the project root AND `fvm` is available; otherwise drop the `fvm` prefix.
+
 ```bash
 # Analyze code for issues
 fvm flutter analyze

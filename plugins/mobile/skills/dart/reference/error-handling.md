@@ -152,7 +152,7 @@ for (final user in users) {
 - Use `UpperCamelCase` for types
 - Use `lowerCamelCase` for members
 - Use `lowercase_with_underscores` for libraries
-- Format code with `fvm dart format`
+- Format code with `fvm dart format` (if `.fvmrc` exists and `fvm` is available) or `dart format`
 - Document **every** public API — classes, constructors, fields, methods, getters, typedefs
 - Document complex private logic with `//` inline comments explaining *why*
 - Use `///` triple-slash for all doc comments; never `/** */`

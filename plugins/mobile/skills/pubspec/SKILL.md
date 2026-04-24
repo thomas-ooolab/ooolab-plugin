@@ -50,7 +50,7 @@ dependencies:
 1. For each package: fetch `https://pub.dev/api/packages/<name>`
 2. Extract `latest.version`
 3. Write `^<latest.version>` — never guess or reuse a remembered version
-4. Run `fvm flutter pub get` after editing
+4. Run `fvm flutter pub get` (or `flutter pub get` if `.fvmrc` is absent or `fvm` is unavailable) after editing
 
 When writing versions in skill docs or examples, follow the same rule: fetch
 first, then write. Never write a version from memory.

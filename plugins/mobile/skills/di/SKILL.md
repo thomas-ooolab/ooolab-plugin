@@ -148,6 +148,8 @@ void configureDependencies() => sl.init();
 
 #### Generate All Packages
 
+Use `fvm dart run ...` if `.fvmrc` exists in the project root and `fvm` is available; otherwise use `dart run ...`.
+
 ```bash
 # Run build_runner in each package
 cd data && fvm dart run build_runner build --delete-conflicting-outputs

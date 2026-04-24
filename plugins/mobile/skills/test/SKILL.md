@@ -65,7 +65,7 @@ test/
 
 ## Running Tests
 
-**Note**: This project uses FVM (Flutter Version Management). Always prefix Flutter/Dart commands with `fvm`.
+**Note**: Use `fvm` prefix for Flutter/Dart commands only if `.fvmrc` exists in the project root AND `fvm` command is available; otherwise use `flutter`/`dart` directly.
 
 ### Command Line
 ```bash

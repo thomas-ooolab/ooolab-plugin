@@ -11,7 +11,7 @@ description: "Dart naming, syntax, documentation, design principles, and modern 
 
 # Dart Coding Standards
 
-This project uses FVM (Flutter Version Management). Always prefix Dart commands with `fvm dart`.
+Use `fvm dart` prefix for Dart commands only if `.fvmrc` exists in the project root AND `fvm` command is available; otherwise use `dart` directly.
 
 ## Key Principles
 

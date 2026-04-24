@@ -140,6 +140,8 @@ end
 
 ### Fastlane Calls
 
+Use `['fvm', 'flutter', ...]` in `sh` commands only if `.fvmrc` exists in the project root and `fvm` is available; otherwise use `['flutter', ...]` directly.
+
 ```ruby
 sh(command: ['fvm', 'flutter', 'build', 'apk', '--profile'])
 

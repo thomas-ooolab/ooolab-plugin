@@ -160,7 +160,7 @@ final class DetermineAccountUseCaseImpl implements DetermineAccountUseCase {
 - External bindings → `<domain>_module.dart` with `@module abstract class`
 - Export repository **interfaces** (not impls) from domain package barrel
 - Export use case **interfaces** from `use_case/<domain>/<feature>/<feature>.dart`
-- Run `fvm dart run build_runner build --delete-conflicting-outputs` after annotation changes
+- Run `fvm dart run build_runner build --delete-conflicting-outputs` (or `dart run ...` if `.fvmrc` is absent or `fvm` is unavailable) after annotation changes
 
 ## NEVER
 

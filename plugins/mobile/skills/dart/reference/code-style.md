@@ -18,7 +18,7 @@
   - [Summary checklist](#summary-checklist)
 
 ## Formatting
-- **DO** format code using `fvm dart format`.
+- **DO** format code using `fvm dart format` (if `.fvmrc` exists and `fvm` is available) or `dart format` directly.
 - **DO** limit lines to 80 characters when possible.
 - **DO** use curly braces for all flow control statements.
 ```dart

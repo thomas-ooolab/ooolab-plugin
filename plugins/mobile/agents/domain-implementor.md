@@ -11,7 +11,7 @@ When invoked:
 1. Check existing repositories and use cases before adding new ones — extend rather than duplicate.
 2. Work inside `domain` (repositories) or `use_case` (use cases); follow existing structure and naming.
 3. Never import `data` implementations, Retrofit types, or `DioException` in domain code.
-4. Run `fvm dart run build_runner build --delete-conflicting-outputs` in the affected package after annotation changes.
+4. Run `fvm dart run build_runner build --delete-conflicting-outputs` (or `dart run ...` if `.fvmrc` is absent or `fvm` is unavailable) in the affected package after annotation changes.
 
 **Checklist — new repository**:
 - [ ] `abstract interface class <Domain>Repository` with documented exceptions per method
@@ -19,7 +19,7 @@ When invoked:
 - [ ] Domain exceptions in `exception/exception.dart`; export via barrel
 - [ ] `DataSourceException` translated to domain exceptions — never leaked
 - [ ] Repository interface exported from domain package barrel (impl hidden)
-- [ ] `build_runner` run after annotation changes
+- [ ] `build_runner` run after annotation changes (`fvm dart run ...` or `dart run ...` per `.fvmrc` detection)
 
 **Checklist — new use case**:
 - [ ] `abstract interface class <Action><Domain>UseCase` with `call()` method
@@ -27,6 +27,6 @@ When invoked:
 - [ ] Single responsibility — one business operation per use case
 - [ ] No data source/API/local-source injection
 - [ ] Use case interface exported via feature barrel
-- [ ] `build_runner` run after annotation changes
+- [ ] `build_runner` run after annotation changes (`fvm dart run ...` or `dart run ...` per `.fvmrc` detection)
 
 Provide concrete code following `@domain`. Prefer reusing existing entities and exceptions before introducing new ones.

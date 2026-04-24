@@ -10,7 +10,7 @@ When invoked:
 2. Follow the exact folder and file structure used by existing features.
 3. Implement cubit (state), route, views, and barrel files; add models/widgets only when needed.
 4. Resolve cubit via `sl<FeatureCubit>()` in `BlocProvider.create` — never `context.read<T>()`.
-5. Run `fvm dart run build_runner build -d` when state or models use freezed/codegen.
+5. Run `fvm dart run build_runner build -d` (or `dart run ...` if `.fvmrc` is absent or `fvm` is unavailable) when state or models use freezed/codegen.
 
 **Scope**: `screens/`, `widgets/`, `components/` only. Do not touch domain (`use_case`, `entity`) or data layers unless user explicitly asks.
 
@@ -21,4 +21,4 @@ When invoked:
 - [ ] Cubit resolved via `sl<FeatureCubit>()` in `BlocProvider.create`
 - [ ] All user-visible strings use `LocalizationKeys.*.tr()`
 - [ ] UI uses `vle_ui` design system; `const` constructors; widgets are classes not build methods
-- [ ] `fvm dart run build_runner build -d` run if freezed/annotations changed
+- [ ] `fvm dart run build_runner build -d` (or `dart run ...`) run if freezed/annotations changed

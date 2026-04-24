@@ -20,14 +20,32 @@ This document covers development workflow and processes. For implementation deta
 
 ### Required Tools
 
-- **FVM (Flutter Version Management)** - MANDATORY for all Flutter/Dart commands
-- Flutter SDK 3.38.7 or higher (managed via FVM)
-- Dart SDK 3.10.7 or higher (managed via FVM)
+- **FVM (Flutter Version Management)** - Used when `.fvmrc` exists in the project root and `fvm` command is available
+- Flutter SDK 3.38.7 or higher
+- Dart SDK 3.10.7 or higher
 - Android Studio / VS Code with Flutter extensions
 - Git for version control
 - Melos for monorepo management
 
-### FVM Installation
+### FVM Detection
+
+Before running any Flutter/Dart command, detect whether to use `fvm`:
+
+```bash
+# Use fvm prefix only when BOTH conditions are true:
+# 1. .fvmrc exists in the project root
+# 2. fvm command is available (which fvm)
+
+# If both: prefix commands with fvm
+fvm flutter run
+fvm dart run build_runner build
+
+# Otherwise: use flutter/dart directly
+flutter run
+dart run build_runner build
+```
+
+### FVM Installation (if needed)
 
 ```bash
 # Install FVM globally via Dart
@@ -40,28 +58,6 @@ brew install fvm
 # Verify installation
 fvm --version
 ```
-
-### CRITICAL: Always Use FVM
-
-**ALL Flutter and Dart commands MUST be prefixed with `fvm`:**
-
-```bash
-# CORRECT - With FVM prefix
-fvm flutter run
-fvm flutter pub get
-fvm dart run build_runner build
-
-# BAD - Without FVM prefix
-flutter run           # DON'T DO THIS
-flutter pub get       # DON'T DO THIS
-dart run build_runner # DON'T DO THIS
-```
-
-**Why FVM is Required:**
-- Ensures consistent Flutter/Dart versions across the team
-- Prevents version mismatch issues
-- Simplifies version management for multiple projects
-- Required by project CI/CD pipelines
 
 ## Project Setup
 
@@ -244,7 +240,7 @@ fvm dart format --set-exit-if-changed .
 
 ## Tools and Commands
 
-**REMINDER:** Use `fvm` prefix if fvm is installed, otherwise call `dart`/`flutter` directly.
+**REMINDER:** Use `fvm` prefix only if `.fvmrc` exists in the project root AND `fvm` command is available; otherwise call `dart`/`flutter` directly.
 
 ### Common Commands
 
